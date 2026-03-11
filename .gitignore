@@ -4,3 +4,7 @@
 *.tmp
 Thumbs.db
 .DS_Store
+.vs/
+**/bin/
+**/obj/
+*.user

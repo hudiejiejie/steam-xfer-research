@@ -1,8 +1,6 @@
-using System.Drawing.Drawing2D;
-
 namespace SpiderXferShell;
 
-public partial class Form1 : Form
+public partial class TransferInventoryConsoleForm : Form
 {
     private readonly Color Bg = ColorTranslator.FromHtml("#0F1115");
     private readonly Color PanelBg = ColorTranslator.FromHtml("#171A21");
@@ -14,13 +12,13 @@ public partial class Form1 : Form
     private readonly Color Warning = ColorTranslator.FromHtml("#F5A524");
     private readonly Color Danger = ColorTranslator.FromHtml("#FF5D5D");
 
-    public Form1()
+    public TransferInventoryConsoleForm()
     {
         InitializeComponent();
         ApplyTheme();
         SeedTables();
         BindEvents();
-        AppendLog("INFO", "SpiderXferShell 已启动（UI shell prototype）");
+        AppendLog("INFO", "Shell started.");
     }
 
     private void ApplyTheme()
@@ -29,33 +27,25 @@ public partial class Form1 : Form
         Font = new Font("Microsoft YaHei UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
         ForeColor = TextMain;
 
-        lblAppTitle.ForeColor = TextMain;
-        lblRunState.ForeColor = Success;
-        lblThreadSummary.ForeColor = TextSub;
-        lblMasterSummary.ForeColor = TextSub;
-        lblBeTradeSummary.ForeColor = TextSub;
-        lblModeSummary.ForeColor = TextSub;
+        foreach (var panel in new[] { pnlTopStatus, pnlBottomActions, pnlParams, pnlMaster, pnlBeTrade, pnlLogs, pnlDetails })
+            panel.BackColor = PanelBg;
 
-        foreach (var panel in new[] { pnlTopStatus, pnlBottomActions, pnlParams, pnlMaster, pnlBeTrade, pnlLogs, pnlDetails, pnlRightSide, pnlLeftMain })
-        {
-            panel.BackColor = panel == pnlRightSide || panel == pnlLeftMain ? Bg : PanelBg;
-        }
+        pnlMain.BackColor = Bg;
+        pnlLeftMain.BackColor = Bg;
+        pnlRightSide.BackColor = Bg;
 
-        foreach (var title in new[] { lblParamsTitle, lblMasterTitle, lblBeTradeTitle, lblLogTitle, lblDetailsTitle })
-        {
+        foreach (var title in new[] { lblParamsTitle, lblMasterTitle, lblBeTradeTitle, lblLogTitle, lblDetailsTitle, lblAppTitle })
             title.ForeColor = TextMain;
-            title.Font = new Font("Bahnschrift SemiBold", 10.5F, FontStyle.Bold, GraphicsUnit.Point);
-        }
+
+        lblAppTitle.Font = new Font("Bahnschrift SemiBold", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
+        lblRunState.ForeColor = Success;
+        foreach (var s in new[] { lblThreadSummary, lblMasterSummary, lblBeTradeSummary, lblModeSummary })
+            s.ForeColor = TextSub;
 
         foreach (var label in new[] { lblThread, lblTransferType, lblAcceptMode, lblItemType, lblItemFilter, lblSelectedAccountTitle, lblSelectedSteamIdTitle, lblSelectedMaFileTitle, lblSelectedOfferTitle, lblSelectedErrorTitle, lblSelectedInventoryTitle })
-        {
             label.ForeColor = TextSub;
-        }
-
         foreach (var value in new[] { lblSelectedAccountValue, lblSelectedSteamIdValue, lblSelectedMaFileValue, lblSelectedOfferValue, lblSelectedErrorValue, lblSelectedInventoryValue })
-        {
             value.ForeColor = TextMain;
-        }
 
         StyleButton(btnImportAccounts, PanelBg2, TextMain);
         StyleButton(btnImportMaFiles, PanelBg2, TextMain);
@@ -63,7 +53,7 @@ public partial class Form1 : Form
         StyleButton(btnExport, PanelBg2, TextMain);
         StyleButton(btnStop, ColorTranslator.FromHtml("#3A2722"), Warning);
         StyleButton(btnStart, ColorTranslator.FromHtml("#10314D"), Accent);
-        StyleButton(btnClearLog, PanelBg2, TextSub, compact: true);
+        StyleButton(btnClearLog, PanelBg2, TextSub, true);
 
         StyleInput(txtItemFilter);
         StyleCombo(cmbTransferType);
@@ -152,85 +142,88 @@ public partial class Form1 : Form
     private void SeedTables()
     {
         dgvMaster.Columns.Clear();
-        dgvMaster.Columns.Add("Account", "账号");
+        dgvMaster.Columns.Add("Account", "Account");
         dgvMaster.Columns.Add("SteamId", "SteamID");
-        dgvMaster.Columns.Add("LoginState", "登录状态");
-        dgvMaster.Columns.Add("Pending", "待接受");
-        dgvMaster.Columns.Add("Assigned", "已分配");
-        dgvMaster.Columns.Add("Limit", "上限");
+        dgvMaster.Columns.Add("LoginState", "Login");
+        dgvMaster.Columns.Add("Pending", "Pending");
+        dgvMaster.Columns.Add("Assigned", "Assigned");
+        dgvMaster.Columns.Add("Limit", "Limit");
         dgvMaster.Columns.Add("MaFile", "maFile");
-        dgvMaster.Rows.Add("master_01", "7656119...001", "在线", "3", "87", "200", "已绑定");
-        dgvMaster.Rows.Add("master_02", "7656119...002", "离线", "0", "0", "200", "缺失");
+        dgvMaster.Rows.Add("master_01", "7656119...001", "Online", "3", "87", "200", "Bound");
+        dgvMaster.Rows.Add("master_02", "7656119...002", "Offline", "0", "0", "200", "Missing");
 
         dgvBeTrade.Columns.Clear();
-        dgvBeTrade.Columns.Add("Account", "账号");
-        dgvBeTrade.Columns.Add("LoginState", "登录状态");
-        dgvBeTrade.Columns.Add("Inventory", "库存数");
-        dgvBeTrade.Columns.Add("Tradable", "可交易");
-        dgvBeTrade.Columns.Add("Cooldown", "冷却");
-        dgvBeTrade.Columns.Add("Sent", "已发报价");
-        dgvBeTrade.Columns.Add("TaskState", "当前状态");
+        dgvBeTrade.Columns.Add("Account", "Account");
+        dgvBeTrade.Columns.Add("LoginState", "Login");
+        dgvBeTrade.Columns.Add("Inventory", "Inventory");
+        dgvBeTrade.Columns.Add("Tradable", "Tradable");
+        dgvBeTrade.Columns.Add("Cooldown", "Cooldown");
+        dgvBeTrade.Columns.Add("Sent", "Sent");
+        dgvBeTrade.Columns.Add("TaskState", "Task State");
         dgvBeTrade.Columns.Add("MaFile", "maFile");
-        dgvBeTrade.Rows.Add("worker_01", "在线", "154", "147", "7", "2", "已发报价", "已绑定");
-        dgvBeTrade.Rows.Add("worker_02", "在线", "91", "88", "3", "0", "拉库存完成", "已绑定");
-        dgvBeTrade.Rows.Add("worker_03", "失败", "0", "0", "0", "0", "登录失败", "缺失");
+        dgvBeTrade.Rows.Add("worker_01", "Online", "154", "147", "7", "2", "Offer Sent", "Bound");
+        dgvBeTrade.Rows.Add("worker_02", "Online", "91", "88", "3", "0", "Inventory Ready", "Bound");
+        dgvBeTrade.Rows.Add("worker_03", "Failed", "0", "0", "0", "0", "Login Failed", "Missing");
 
-        cmbTransferType.Items.AddRange(new object[] { "边发边接", "全发后统一接受" });
-        cmbAcceptMode.Items.AddRange(new object[] { "自动接受", "延后接受", "手动确认" });
-        cmbItemType.Items.AddRange(new object[] { "按类型筛选", "按名称精确" });
+        cmbTransferType.Items.AddRange(new object[] { "Send+Accept", "Send All Then Accept" });
+        cmbAcceptMode.Items.AddRange(new object[] { "Auto Accept", "Delayed Accept", "Manual Confirm" });
+        cmbItemType.Items.AddRange(new object[] { "Filter by Type", "Filter by Exact Name" });
         cmbTransferType.SelectedIndex = 0;
         cmbAcceptMode.SelectedIndex = 0;
         cmbItemType.SelectedIndex = 0;
         numThreadCount.Value = 8;
 
-        lblThreadSummary.Text = "线程：8";
-        lblMasterSummary.Text = "主库号：2";
-        lblBeTradeSummary.Text = "待转号：3";
-        lblModeSummary.Text = "模式：边发边接";
+        lblThreadSummary.Text = "Threads: 8";
+        lblMasterSummary.Text = "Masters: 2";
+        lblBeTradeSummary.Text = "Workers: 3";
+        lblModeSummary.Text = "Mode: Send+Accept";
         lblSelectedAccountValue.Text = "worker_01";
         lblSelectedSteamIdValue.Text = "7656119...003";
-        lblSelectedMaFileValue.Text = "已绑定";
+        lblSelectedMaFileValue.Text = "Bound";
         lblSelectedOfferValue.Text = "#1039284";
-        lblSelectedErrorValue.Text = "无";
-        lblSelectedInventoryValue.Text = "总 154 / 可交易 147 / 冷却 7";
+        lblSelectedErrorValue.Text = "None";
+        lblSelectedInventoryValue.Text = "154 total / 147 tradable / 7 cooldown";
     }
 
     private void BindEvents()
     {
-        btnImportAccounts.Click += (_, _) => AppendLog("INFO", "点击：导入账号（占位）");
-        btnImportMaFiles.Click += (_, _) => AppendLog("INFO", "点击：导入 maFile（占位）");
-        btnViewInventory.Click += (_, _) => AppendLog("INFO", "点击：查看库存（占位）");
-        btnExport.Click += (_, _) => AppendLog("INFO", "点击：导出结果（占位）");
+        btnImportAccounts.Click += (_, _) => AppendLog("INFO", "Import accounts clicked.");
+        btnImportMaFiles.Click += (_, _) => AppendLog("INFO", "Import maFiles clicked.");
+        btnViewInventory.Click += (_, _) => AppendLog("INFO", "View inventory clicked.");
+        btnExport.Click += (_, _) => AppendLog("INFO", "Export clicked.");
         btnStart.Click += (_, _) =>
         {
-            lblRunState.Text = "状态：运行中";
+            lblRunState.Text = "State: Running";
             lblRunState.ForeColor = Success;
-            AppendLog("INFO", "开始转移（UI shell 占位）");
+            AppendLog("INFO", "Start transfer clicked.");
         };
         btnStop.Click += (_, _) =>
         {
-            lblRunState.Text = "状态：停止中";
+            lblRunState.Text = "State: Stopping";
             lblRunState.ForeColor = Warning;
-            AppendLog("WARN", "停止任务（UI shell 占位）");
+            AppendLog("WARN", "Stop transfer clicked.");
         };
         btnClearLog.Click += (_, _) => txtLog.Clear();
         chkAutoScroll.Checked = true;
         dgvBeTrade.SelectionChanged += (_, _) => SyncSelectionDetails();
         dgvMaster.SelectionChanged += (_, _) => SyncSelectionDetails();
-        cmbTransferType.SelectedIndexChanged += (_, _) => lblModeSummary.Text = $"模式：{cmbTransferType.Text}";
-        numThreadCount.ValueChanged += (_, _) => lblThreadSummary.Text = $"线程：{numThreadCount.Value}";
+        cmbTransferType.SelectedIndexChanged += (_, _) => lblModeSummary.Text = $"Mode: {cmbTransferType.Text}";
+        numThreadCount.ValueChanged += (_, _) => lblThreadSummary.Text = $"Threads: {numThreadCount.Value}";
     }
 
     private void SyncSelectionDetails()
     {
         var row = dgvBeTrade.CurrentRow ?? dgvMaster.CurrentRow;
         if (row == null) return;
+
         lblSelectedAccountValue.Text = row.Cells[0].Value?.ToString() ?? "-";
-        lblSelectedSteamIdValue.Text = dgvBeTrade.CurrentRow != null ? "7656119...003" : row.Cells.Count > 1 ? row.Cells[1].Value?.ToString() ?? "-" : "-";
+        lblSelectedSteamIdValue.Text = dgvBeTrade.CurrentRow != null ? "7656119...003" : (row.Cells.Count > 1 ? row.Cells[1].Value?.ToString() ?? "-" : "-");
         lblSelectedMaFileValue.Text = row.Cells[row.Cells.Count - 1].Value?.ToString() ?? "-";
         lblSelectedOfferValue.Text = dgvBeTrade.CurrentRow != null ? "#1039284" : "-";
-        lblSelectedErrorValue.Text = dgvBeTrade.CurrentRow != null && (row.Cells[1].Value?.ToString() == "失败") ? "登录失败" : "无";
-        lblSelectedInventoryValue.Text = dgvBeTrade.CurrentRow != null ? $"总 {row.Cells[2].Value} / 可交易 {row.Cells[3].Value} / 冷却 {row.Cells[4].Value}" : "无";
+        lblSelectedErrorValue.Text = dgvBeTrade.CurrentRow != null && (row.Cells[1].Value?.ToString() == "Failed") ? "Login Failed" : "None";
+        lblSelectedInventoryValue.Text = dgvBeTrade.CurrentRow != null
+            ? $"{row.Cells[2].Value} total / {row.Cells[3].Value} tradable / {row.Cells[4].Value} cooldown"
+            : "N/A";
     }
 
     private void AppendLog(string level, string message)
