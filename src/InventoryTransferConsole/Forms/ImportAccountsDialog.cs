@@ -15,7 +15,7 @@ public sealed class ImportAccountsDialog : Form
 
     public ImportAccountsDialog()
     {
-        Text = "Import Accounts";
+        Text = "导入账号";
         StartPosition = FormStartPosition.CenterParent;
         MinimumSize = new Size(760, 520);
         Size = new Size(820, 560);
@@ -26,7 +26,7 @@ public sealed class ImportAccountsDialog : Form
         var pnlTop = new Panel { Dock = DockStyle.Top, Height = 72, Padding = new Padding(16, 14, 16, 10), BackColor = ColorTranslator.FromHtml("#171A21") };
         var lblTitle = new Label
         {
-            Text = "Paste accounts here",
+            Text = "粘贴账号文本",
             Dock = DockStyle.Top,
             Height = 26,
             Font = new Font("Bahnschrift SemiBold", 13F, FontStyle.Bold, GraphicsUnit.Point),
@@ -34,7 +34,7 @@ public sealed class ImportAccountsDialog : Form
         };
         lblHint = new Label
         {
-            Text = "Supported: account----password  |  account:password  |  account,password",
+            Text = "支持：账号----密码  |  账号:密码  |  账号,密码",
             Dock = DockStyle.Bottom,
             Height = 20,
             ForeColor = ColorTranslator.FromHtml("#9AA4B2")
@@ -59,12 +59,12 @@ public sealed class ImportAccountsDialog : Form
             Width = 360,
             TextAlign = ContentAlignment.MiddleLeft,
             ForeColor = ColorTranslator.FromHtml("#9AA4B2"),
-            Text = "No content yet."
+            Text = "尚未输入内容。"
         };
 
-        btnLoadDemo = CreateButton("Load Demo", ColorTranslator.FromHtml("#1D2230"), ColorTranslator.FromHtml("#E6EAF2"));
-        btnConfirm = CreateButton("Import", ColorTranslator.FromHtml("#10314D"), ColorTranslator.FromHtml("#4DA3FF"));
-        btnCancel = CreateButton("Cancel", ColorTranslator.FromHtml("#2A2020"), ColorTranslator.FromHtml("#F5A524"));
+        btnLoadDemo = CreateButton("加载示例", ColorTranslator.FromHtml("#1D2230"), ColorTranslator.FromHtml("#E6EAF2"));
+        btnConfirm = CreateButton("导入", ColorTranslator.FromHtml("#2C3442"), ColorTranslator.FromHtml("#E6EAF2"));
+        btnCancel = CreateButton("取消", ColorTranslator.FromHtml("#23272F"), ColorTranslator.FromHtml("#A7AFBD"));
 
         btnLoadDemo.Location = new Point(0, 0);
         btnConfirm.Location = new Point(0, 0);
@@ -126,7 +126,7 @@ public sealed class ImportAccountsDialog : Form
     private void RecomputeSummary()
     {
         var result = ParseText(txtInput.Text);
-        lblSummary.Text = $"Lines: {result.RawLines.Count}  |  Parsed: {result.ParsedCount}  |  Invalid: {result.InvalidCount}";
+        lblSummary.Text = $"总行数：{result.RawLines.Count}  |  解析成功：{result.ParsedCount}  |  非法：{result.InvalidCount}";
     }
 
     private static ImportAccountsResult ParseText(string text)

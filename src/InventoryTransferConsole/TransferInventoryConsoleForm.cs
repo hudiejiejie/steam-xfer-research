@@ -6,15 +6,15 @@ namespace InventoryTransferConsole;
 
 public partial class TransferInventoryConsoleForm : Form, ILogSink
 {
-    private readonly Color Bg = ColorTranslator.FromHtml("#0F1115");
-    private readonly Color PanelBg = ColorTranslator.FromHtml("#171A21");
-    private readonly Color PanelBg2 = ColorTranslator.FromHtml("#1D2230");
-    private readonly Color TextMain = ColorTranslator.FromHtml("#E6EAF2");
-    private readonly Color TextSub = ColorTranslator.FromHtml("#9AA4B2");
-    private readonly Color Accent = ColorTranslator.FromHtml("#4DA3FF");
-    private readonly Color Success = ColorTranslator.FromHtml("#2ECC71");
-    private readonly Color Warning = ColorTranslator.FromHtml("#F5A524");
-    private readonly Color Danger = ColorTranslator.FromHtml("#FF5D5D");
+    private readonly Color Bg = ColorTranslator.FromHtml("#111317");
+    private readonly Color PanelBg = ColorTranslator.FromHtml("#171B22");
+    private readonly Color PanelBg2 = ColorTranslator.FromHtml("#1E2430");
+    private readonly Color TextMain = ColorTranslator.FromHtml("#ECEFF4");
+    private readonly Color TextSub = ColorTranslator.FromHtml("#A7AFBD");
+    private readonly Color Accent = ColorTranslator.FromHtml("#5F86B3");
+    private readonly Color Success = ColorTranslator.FromHtml("#7EA37B");
+    private readonly Color Warning = ColorTranslator.FromHtml("#B79B67");
+    private readonly Color Danger = ColorTranslator.FromHtml("#B76D6D");
 
     private readonly ITransferController controller;
     private readonly ISettingsService settingsService;
@@ -32,7 +32,7 @@ public partial class TransferInventoryConsoleForm : Form, ILogSink
         LoadSettingsIntoUi();
         BindEvents();
         UpdateActionState(false);
-        Info($"Console shell loaded. Settings: {settingsService.SettingsPath}");
+        Info($"控制台外壳已加载。配置文件：{settingsService.SettingsPath}");
     }
 
     private void LoadDashboard()
@@ -73,11 +73,11 @@ public partial class TransferInventoryConsoleForm : Form, ILogSink
         appSettings = settingsService.Load();
 
         cmbTransferType.Items.Clear();
-        cmbTransferType.Items.AddRange(new object[] { "Send+Accept", "Send All Then Accept" });
+        cmbTransferType.Items.AddRange(new object[] { "边发边接", "全发后统一接受" });
         cmbAcceptMode.Items.Clear();
-        cmbAcceptMode.Items.AddRange(new object[] { "Auto Accept", "Delayed Accept", "Manual Confirm" });
+        cmbAcceptMode.Items.AddRange(new object[] { "自动接受", "延后接受", "手动确认" });
         cmbItemType.Items.Clear();
-        cmbItemType.Items.AddRange(new object[] { "Filter by Type", "Filter by Exact Name" });
+        cmbItemType.Items.AddRange(new object[] { "按类型筛选", "按名称精确" });
 
         numThreadCount.Value = Math.Max(numThreadCount.Minimum, Math.Min(numThreadCount.Maximum, appSettings.Runtime.ThreadCount));
         cmbTransferType.SelectedIndex = ClampIndex(appSettings.Runtime.TransferTypeIndex, cmbTransferType.Items.Count);
@@ -85,9 +85,9 @@ public partial class TransferInventoryConsoleForm : Form, ILogSink
         cmbItemType.SelectedIndex = ClampIndex(appSettings.Runtime.ItemTypeIndex, cmbItemType.Items.Count);
         txtItemFilter.Text = appSettings.Runtime.ItemFilterValue;
 
-        lblThreadSummary.Text = $"Threads: {numThreadCount.Value}";
+        lblThreadSummary.Text = $"线程：{numThreadCount.Value}";
         if (cmbTransferType.SelectedIndex >= 0)
-            lblModeSummary.Text = $"Mode: {cmbTransferType.Text}";
+            lblModeSummary.Text = $"模式：{cmbTransferType.Text}";
         suppressSettingsEvents = false;
     }
 
@@ -239,7 +239,8 @@ public partial class TransferInventoryConsoleForm : Form, ILogSink
         dgv.ColumnHeadersDefaultCellStyle.Font = new Font("Bahnschrift SemiBold", 9F, FontStyle.Bold, GraphicsUnit.Point);
         dgv.DefaultCellStyle.BackColor = PanelBg2;
         dgv.DefaultCellStyle.ForeColor = TextMain;
-        dgv.DefaultCellStyle.SelectionBackColor = ColorTranslator.FromHtml("#1E3554");
+        dgv.AlternatingRowsDefaultCellStyle.BackColor = ColorTranslator.FromHtml("#202734");
+        dgv.DefaultCellStyle.SelectionBackColor = ColorTranslator.FromHtml("#2A3443");
         dgv.DefaultCellStyle.SelectionForeColor = Color.White;
         dgv.DefaultCellStyle.Font = new Font("Microsoft YaHei UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
         dgv.RowTemplate.Height = 30;
@@ -308,7 +309,7 @@ public partial class TransferInventoryConsoleForm : Form, ILogSink
         dgvMaster.SelectionChanged += (_, _) => SyncSelectionDetails();
         cmbTransferType.SelectedIndexChanged += (_, _) =>
         {
-            lblModeSummary.Text = $"Mode: {cmbTransferType.Text}";
+            lblModeSummary.Text = $"模式：{cmbTransferType.Text}";
             SaveSettingsFromUi();
         };
         cmbAcceptMode.SelectedIndexChanged += (_, _) => SaveSettingsFromUi();
@@ -316,7 +317,7 @@ public partial class TransferInventoryConsoleForm : Form, ILogSink
         txtItemFilter.TextChanged += (_, _) => SaveSettingsFromUi();
         numThreadCount.ValueChanged += (_, _) =>
         {
-            lblThreadSummary.Text = $"Threads: {numThreadCount.Value}";
+            lblThreadSummary.Text = $"线程：{numThreadCount.Value}";
             SaveSettingsFromUi();
         };
         FormClosing += (_, _) => SaveSettingsFromUi();
@@ -388,9 +389,8 @@ public partial class TransferInventoryConsoleForm : Form, ILogSink
         {
             var login = row.Cells[2].Value?.ToString();
             var maFile = row.Cells[6].Value?.ToString();
-            row.DefaultCellStyle.ForeColor = login == "离线" ? Danger : TextMain;
-            if (maFile == "缺失")
-                row.Cells[6].Style.ForeColor = Warning;
+            row.Cells[2].Style.ForeColor = login == "离线" ? Danger : TextSub;
+            row.Cells[6].Style.ForeColor = maFile == "缺失" ? Warning : TextSub;
         }
 
         foreach (DataGridViewRow row in dgvBeTrade.Rows)
@@ -399,8 +399,8 @@ public partial class TransferInventoryConsoleForm : Form, ILogSink
             var task = row.Cells[6].Value?.ToString();
             var maFile = row.Cells[7].Value?.ToString();
 
-            row.DefaultCellStyle.ForeColor = login == "失败" ? Danger : TextMain;
-            row.Cells[7].Style.ForeColor = maFile == "缺失" ? Warning : Success;
+            row.Cells[1].Style.ForeColor = login == "失败" ? Danger : TextSub;
+            row.Cells[7].Style.ForeColor = maFile == "缺失" ? Warning : TextSub;
 
             row.Cells[6].Style.ForeColor = task switch
             {
@@ -408,7 +408,7 @@ public partial class TransferInventoryConsoleForm : Form, ILogSink
                 "拉库存完成" => Success,
                 "排队中" => Warning,
                 "登录失败" => Danger,
-                _ => TextMain
+                _ => TextSub
             };
         }
     }
