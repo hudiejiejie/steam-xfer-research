@@ -23,8 +23,8 @@ public sealed class MockTransferController : ITransferController
     public DashboardSnapshot StartTransfer(TransferConfig config, ILogSink logSink)
     {
         snapshot.ThreadCount = config.Runtime.ThreadCount;
-        snapshot.ModeSummary = config.Runtime.TransferTypeIndex == 0 ? "边发边接" : "全发后统一接受";
-        snapshot.RunState = "运行中";
+        snapshot.ModeSummary = config.Runtime.TransferTypeIndex == 0 ? "Send+Accept" : "Send All Then Accept";
+        snapshot.RunState = "Running";
 
         foreach (var worker in snapshot.Workers)
         {
@@ -39,7 +39,7 @@ public sealed class MockTransferController : ITransferController
 
     public DashboardSnapshot StopTransfer(ILogSink logSink)
     {
-        snapshot.RunState = "停止中";
+        snapshot.RunState = "Stopping";
         logSink.Warn("Transfer stop requested.");
         return Clone(snapshot);
     }
@@ -102,8 +102,8 @@ public sealed class MockTransferController : ITransferController
         var snapshot = new DashboardSnapshot
         {
             ThreadCount = 8,
-            ModeSummary = "边发边接",
-            RunState = "空闲",
+            ModeSummary = "Send+Accept",
+            RunState = "Idle",
             Masters =
             [
                 new MasterAccountRow { Account = "master_01", SteamId = "7656119...001", LoginState = "Online", Pending = 3, Assigned = 87, Limit = 200, MaFile = "Bound" },
