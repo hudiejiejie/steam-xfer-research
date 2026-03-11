@@ -115,35 +115,35 @@ partial class TransferInventoryConsoleForm
         lblModeSummary.AutoSize = true;
         lblModeSummary.Location = new Point(1440, 20);
         lblModeSummary.Name = "lblModeSummary";
-        lblModeSummary.Text = "Mode: -";
+        lblModeSummary.Text = "模式：-";
         // lblBeTradeSummary
         lblBeTradeSummary.Anchor = AnchorStyles.Top | AnchorStyles.Right;
         lblBeTradeSummary.AutoSize = true;
         lblBeTradeSummary.Location = new Point(1330, 20);
         lblBeTradeSummary.Name = "lblBeTradeSummary";
-        lblBeTradeSummary.Text = "Workers: 0";
+        lblBeTradeSummary.Text = "待转号：0";
         // lblMasterSummary
         lblMasterSummary.Anchor = AnchorStyles.Top | AnchorStyles.Right;
         lblMasterSummary.AutoSize = true;
         lblMasterSummary.Location = new Point(1230, 20);
         lblMasterSummary.Name = "lblMasterSummary";
-        lblMasterSummary.Text = "Masters: 0";
+        lblMasterSummary.Text = "主库号：0";
         // lblThreadSummary
         lblThreadSummary.Anchor = AnchorStyles.Top | AnchorStyles.Right;
         lblThreadSummary.AutoSize = true;
         lblThreadSummary.Location = new Point(1145, 20);
         lblThreadSummary.Name = "lblThreadSummary";
-        lblThreadSummary.Text = "Threads: 0";
+        lblThreadSummary.Text = "线程：0";
         // lblRunState
         lblRunState.AutoSize = true;
         lblRunState.Location = new Point(280, 20);
         lblRunState.Name = "lblRunState";
-        lblRunState.Text = "State: Idle";
+        lblRunState.Text = "状态：空闲";
         // lblAppTitle
         lblAppTitle.AutoSize = true;
         lblAppTitle.Location = new Point(16, 16);
         lblAppTitle.Name = "lblAppTitle";
-        lblAppTitle.Text = "Steam Asset Transfer Console";
+        lblAppTitle.Text = "Steam 资产转移控制台";
         // pnlBottomActions
         pnlBottomActions.Controls.Add(btnStart);
         pnlBottomActions.Controls.Add(btnStop);
@@ -160,34 +160,34 @@ partial class TransferInventoryConsoleForm
         btnStart.Location = new Point(1424, 17);
         btnStart.Name = "btnStart";
         btnStart.Size = new Size(152, 38);
-        btnStart.Text = "Start Transfer";
+        btnStart.Text = "开始转移";
         // btnStop
         btnStop.Anchor = AnchorStyles.Top | AnchorStyles.Right;
         btnStop.Location = new Point(1292, 17);
         btnStop.Name = "btnStop";
         btnStop.Size = new Size(116, 38);
-        btnStop.Text = "Stop";
+        btnStop.Text = "停止任务";
         // btnExport
         btnExport.Anchor = AnchorStyles.Top | AnchorStyles.Right;
         btnExport.Location = new Point(1160, 17);
         btnExport.Name = "btnExport";
         btnExport.Size = new Size(116, 38);
-        btnExport.Text = "Export";
+        btnExport.Text = "导出结果";
         // btnViewInventory
         btnViewInventory.Location = new Point(280, 17);
         btnViewInventory.Name = "btnViewInventory";
         btnViewInventory.Size = new Size(116, 38);
-        btnViewInventory.Text = "Inventory";
+        btnViewInventory.Text = "查看库存";
         // btnImportMaFiles
         btnImportMaFiles.Location = new Point(148, 17);
         btnImportMaFiles.Name = "btnImportMaFiles";
         btnImportMaFiles.Size = new Size(116, 38);
-        btnImportMaFiles.Text = "Import maFile";
+        btnImportMaFiles.Text = "导入 maFile";
         // btnImportAccounts
         btnImportAccounts.Location = new Point(16, 17);
         btnImportAccounts.Name = "btnImportAccounts";
         btnImportAccounts.Size = new Size(116, 38);
-        btnImportAccounts.Text = "Import Accounts";
+        btnImportAccounts.Text = "导入账号";
         // pnlMain
         pnlMain.Controls.Add(pnlLeftMain);
         pnlMain.Controls.Add(pnlRightSide);
@@ -213,7 +213,7 @@ partial class TransferInventoryConsoleForm
         lblBeTradeTitle.Dock = DockStyle.Top;
         lblBeTradeTitle.Height = 28;
         lblBeTradeTitle.Name = "lblBeTradeTitle";
-        lblBeTradeTitle.Text = "Workers / Senders";
+        lblBeTradeTitle.Text = "待转号 / 发货端";
         lblBeTradeTitle.TextAlign = ContentAlignment.MiddleLeft;
         // pnlMaster
         pnlMaster.Controls.Add(dgvMaster);
@@ -230,7 +230,7 @@ partial class TransferInventoryConsoleForm
         lblMasterTitle.Dock = DockStyle.Top;
         lblMasterTitle.Height = 28;
         lblMasterTitle.Name = "lblMasterTitle";
-        lblMasterTitle.Text = "Masters / Receivers";
+        lblMasterTitle.Text = "主库号 / 接收端";
         lblMasterTitle.TextAlign = ContentAlignment.MiddleLeft;
         // pnlParams
         pnlParams.Controls.Add(tblParams);
@@ -243,7 +243,7 @@ partial class TransferInventoryConsoleForm
         lblParamsTitle.Dock = DockStyle.Top;
         lblParamsTitle.Height = 28;
         lblParamsTitle.Name = "lblParamsTitle";
-        lblParamsTitle.Text = "Runtime Parameters";
+        lblParamsTitle.Text = "运行参数";
         lblParamsTitle.TextAlign = ContentAlignment.MiddleLeft;
         // tblParams
         tblParams.ColumnCount = 3;
@@ -270,7 +270,7 @@ partial class TransferInventoryConsoleForm
         lblThread.AutoSize = true;
         lblThread.Location = new Point(4, 0);
         lblThread.Name = "lblThread";
-        lblThread.Text = "Threads";
+        lblThread.Text = "线程数";
         // numThreadCount
         numThreadCount.Dock = DockStyle.Bottom;
         numThreadCount.Minimum = 1;
@@ -285,7 +285,7 @@ partial class TransferInventoryConsoleForm
         lblTransferType.AutoSize = true;
         lblTransferType.Location = new Point(4, 0);
         lblTransferType.Name = "lblTransferType";
-        lblTransferType.Text = "Transfer Mode";
+        lblTransferType.Text = "转移模式";
         // cmbTransferType
         cmbTransferType.Dock = DockStyle.Bottom;
         cmbTransferType.Name = "cmbTransferType";
@@ -298,7 +298,7 @@ partial class TransferInventoryConsoleForm
         lblAcceptMode.AutoSize = true;
         lblAcceptMode.Location = new Point(4, 0);
         lblAcceptMode.Name = "lblAcceptMode";
-        lblAcceptMode.Text = "Accept Mode";
+        lblAcceptMode.Text = "接受方式";
         // cmbAcceptMode
         cmbAcceptMode.Dock = DockStyle.Bottom;
         cmbAcceptMode.Name = "cmbAcceptMode";
@@ -311,7 +311,7 @@ partial class TransferInventoryConsoleForm
         lblItemType.AutoSize = true;
         lblItemType.Location = new Point(4, 0);
         lblItemType.Name = "lblItemType";
-        lblItemType.Text = "Filter Type";
+        lblItemType.Text = "筛选方式";
         // cmbItemType
         cmbItemType.Dock = DockStyle.Bottom;
         cmbItemType.Name = "cmbItemType";
@@ -324,7 +324,7 @@ partial class TransferInventoryConsoleForm
         lblItemFilter.AutoSize = true;
         lblItemFilter.Location = new Point(4, 0);
         lblItemFilter.Name = "lblItemFilter";
-        lblItemFilter.Text = "Filter Value";
+        lblItemFilter.Text = "筛选值";
         // txtItemFilter
         txtItemFilter.Dock = DockStyle.Bottom;
         txtItemFilter.Name = "txtItemFilter";
@@ -347,20 +347,20 @@ partial class TransferInventoryConsoleForm
         lblLogTitle.Dock = DockStyle.Top;
         lblLogTitle.Height = 28;
         lblLogTitle.Name = "lblLogTitle";
-        lblLogTitle.Text = "Live Logs";
+        lblLogTitle.Text = "实时日志";
         lblLogTitle.TextAlign = ContentAlignment.MiddleLeft;
         // btnClearLog
         btnClearLog.Anchor = AnchorStyles.Top | AnchorStyles.Right;
         btnClearLog.Location = new Point(232, 5);
         btnClearLog.Name = "btnClearLog";
         btnClearLog.Size = new Size(74, 28);
-        btnClearLog.Text = "Clear";
+        btnClearLog.Text = "清空";
         // chkAutoScroll
         chkAutoScroll.Anchor = AnchorStyles.Top | AnchorStyles.Right;
         chkAutoScroll.AutoSize = true;
         chkAutoScroll.Location = new Point(314, 10);
         chkAutoScroll.Name = "chkAutoScroll";
-        chkAutoScroll.Text = "Auto Scroll";
+        chkAutoScroll.Text = "自动滚动";
         // txtLog
         txtLog.Dock = DockStyle.Fill;
         txtLog.Location = new Point(8, 36);
@@ -377,7 +377,7 @@ partial class TransferInventoryConsoleForm
         lblDetailsTitle.Dock = DockStyle.Top;
         lblDetailsTitle.Height = 28;
         lblDetailsTitle.Name = "lblDetailsTitle";
-        lblDetailsTitle.Text = "Current Details";
+        lblDetailsTitle.Text = "当前详情";
         lblDetailsTitle.TextAlign = ContentAlignment.MiddleLeft;
         // tableLayoutPanel1
         tableLayoutPanel1.ColumnCount = 2;
