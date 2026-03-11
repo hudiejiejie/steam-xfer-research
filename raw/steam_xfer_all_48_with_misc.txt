@@ -1,0 +1,1379 @@
+﻿===== 文本_2---b5d3de4c-a2ce-459e-8f52-b0801b0551b4.txt =====
+xkgxjgxutsit, [2026骞?鏈?0鏃?05:16]
+璇嗗埆鍑烘潵浜嗭細
+
+缁撹
+
+杩欎釜 Steam杞簱瀛榁1.0.exe 鏄?.NET 绋嬪簭锛屼笉鏄?PyInstaller锛屼篃涓嶆槸 UPX 澹炽€?
+璇佹嵁
+
+鎴戝垰妫€鏌ュ埌锛?
+鈥?PE 绫诲瀷锛歅E32+
+鈥?鑺傚尯閲屾湁锛?CLR_UEF
+鈥?鏂囦欢閲屽懡涓細mscoree.dll
+鈥?鏂囦欢閲屽懡涓細_CorExeMain
+
+杩欏嚑涓熀鏈氨鏄?.NET 鍙墽琛屾枃浠?鐨勫己鐗瑰緛銆?
+鈹€鈹€鈹€
+
+杩欐剰鍛崇潃浠€涔?
+杩欐槸涓ソ娑堟伅銆?
+鍥犱负 .NET 绋嬪簭閫氬父鍙互鍙嶇紪璇戞垚鎺ヨ繎婧愮爜鐨?C# 缁撴瀯锛屾瘮鍘熺敓 C++ / 鏄撹瑷€濂藉鐞嗗緢澶氥€?
+浣犵幇鍦ㄥ彲浠ョ敤锛?
+鈥?dnSpyEx锛堜紭鍏堬級
+鈥?ILSpy
+
+鍘诲仛杩欎簺浜嬶細
+
+鈥?鐪嬬獥浣?UI
+鈥?鐪嬪瓧绗︿覆
+鈥?鐪嬮厤缃鍐欓€昏緫
+鈥?鐪嬬綉缁滆姹傞€昏緫
+鈥?鏀规寜閽枃妗堛€佹爣棰樸€佹牎楠岄€昏緫
+鈥?閲嶆柊淇濆瓨/閲嶆柊缂栬瘧
+
+鈹€鈹€鈹€
+
+褰撳墠鍒ゆ柇
+
+鎵€浠ヨ繖鏉＄嚎涓嶆槸鈥滃彧鑳界‖琛ヤ竵鈥濈殑閭ｇ锛?鑰屾槸鏇存帴杩戯細
+
+鍙互鍙嶇紪璇?鈫?鍒嗘瀽閫昏緫 鈫?瀹氱偣淇敼 鈫?閲嶆柊淇濆瓨
+
+鈹€鈹€鈹€
+
+涓嬩竴姝ユ渶鍚堥€?
+鎴戝缓璁洿鎺ュ仛杩欎竴姝ワ細
+
+娣辨寲瀹冩槸涓嶆槸 WinForms / WPF / 娣峰悎绋嬪簭闆?
+椤轰究鎶婅繖浜涙壘鍑烘潵锛?
+鈥?涓诲叆鍙?鈥?涓荤獥浣?鈥?Setting.json 鐨勮鍙栦綅缃?鈥?config/gloabl.db 鐨勭敤閫?鈥?鏄惁鏈夌綉缁滆姹傛ā鍧?鈥?鍝簺鏂囨湰/鍔熻兘鏈€瀹规槗鏀?
+濡傛灉浣犲悓鎰忥紝鎴戜笅涓€姝ュ氨缁х画锛?
+鍙嶇紪璇戠骇鍒嗘瀽杩欎釜 exe 鐨勫唴閮ㄧ粨鏋勩€?
+
+===== 文本_3---75b41553-5ec1-49de-b2d4-086861a7a19a.txt =====
+xkgxjgxutsit, [2026骞?鏈?0鏃?05:17]
+鎴戠户缁線閲屾寲锛岄噸鐐圭湅瀹冩槸 WinForms 杩樻槸 WPF銆佷富绋嬪簭闆嗗彨浠€涔堛€佷緷璧栦簡鍝簺搴擄紝浠ュ強鏈夋病鏈夋槑鏄剧殑閰嶇疆/缃戠粶妯″潡銆?
+
+===== 文本_4---ae00149a-4a04-49c0-ada0-da4cae3128ff.txt =====
+xkgxjgxutsit, [2026骞?鏈?0鏃?05:18]
+PowerShell 瀵硅繖涓腑鏂囪矾寰勪笉绋冲畾锛屾垜鎹㈡垚绾?Python / 鍛戒护琛屾柟妗堬紝鐩存帴鎵惧彲鐢ㄧ殑 .NET 鍙嶇紪璇戝伐鍏锋垨鍏冩暟鎹嚎绱€?
+
+===== 文本_5---cbbc2928-d1c7-458b-862c-efe70b0f5a83.txt =====
+xkgxjgxutsit, [2026骞?鏈?0鏃?05:18]
+宸茬粡鎸栧埌姣旇緝鍏抽敭鐨勫唴閮ㄧ壒寰佷簡銆傛垜鍐嶈ˉ涓€鍒€锛氱湅鐪嬪畠鏄笉鏄?.NET 鍗曟枃浠跺彂甯冿紙single-file锛夛紝浠ュ強鍐呴儴鎹嗕簡鍝簺 DLL銆?
+
+===== 文本_6---a4139332-1f44-4f8c-8e5c-a899f4c0a670.txt =====
+xkgxjgxutsit, [2026骞?鏈?0鏃?05:19]
+鎴戝啀琛ヤ竴涓渶鏈変环鍊肩殑鐐癸細鎶婂畠鍐呴儴鐨勭▼搴忛泦鍚?鍛藉悕绌洪棿鐥曡抗鎷庡嚭鏉ワ紝鏂逛究浣犲悗闈㈢洿鎺ュ湪 dnSpy 閲屾壘鍏ュ彛绫汇€?
+
+===== 文本_7---cf73b2fe-3a7f-4b11-a55c-669cd197963a.txt =====
+xkgxjgxutsit, [2026骞?鏈?0鏃?05:20]
+缁х画鍒嗘瀽鍚庣殑缁撹鏇存竻鏅颁簡锛?
+鐜板湪鍙互鍩烘湰瀹氭€?
+杩欎釜 Steam杞簱瀛榁1.0.exe 涓嶆槸鏅€氬師鐢熼粦鐩掞紝鑰屾槸 .NET 8 鐨勫崟鏂囦欢妗岄潰绋嬪簭锛坰ingle-file app锛夈€?
+鍏抽敭璇佹嵁
+
+鎴戝垰鎸栧埌杩欎簺鍐呴儴鐗瑰緛锛?
+鈥?.NET 鐗瑰緛锛?鈥?mscoree.dll
+鈥?_CorExeMain
+鈥?.CLR_UEF
+鈥?single-file/bundle 鐗瑰緛锛?鈥?.runtimeconfig.json
+鈥?.deps.json
+鈥?singlefile
+鈥?bundle
+鈥?鍐呴儴涓荤▼搴忛泦鍚嶏細
+鈥?SteamInventoryManager.dll
+鈥?鍐呴儴渚濊禆锛?鈥?SteamKit2 3.2.0
+鈥?SteamAuth 3.0.0
+鈥?Newtonsoft.Json 13.0.3
+鈥?Microsoft.IdentityModel.JsonWebTokens 8.11.0
+鈥?Microsoft.Extensions.Configuration 8.0.0
+鈥?UI 鐩稿叧锛?鈥?PresentationFramework.dll
+鈥?System.Windows.Forms.dll
+
+鈹€鈹€鈹€
+
+杩欒鏄庝粈涔?
+1. 瀹冧笉鏄槗璇█鎴愬搧
+
+鑷冲皯杩欎釜鈥滃厤璐圭増鈥濅富 exe 涓嶆槸浼犵粺鏄撹瑷€榛戠洅銆?
+2. 瀹冨緢鍙兘鏄?C# 鍋氱殑妗岄潰绋嬪簭
+
+鑰屼笖澶ф鐜囨槸锛?
+WPF 涓轰富锛學inForms 涓鸿緟鐨勬贩鍚堟闈㈢▼搴?
+鍥犱负锛?
+鈥?PresentationFramework.dll 鏄?WPF 鏍稿績
+鈥?System.Windows.Forms.dll 涔熷湪锛屽彲鑳藉彧鏄敤浜嗘枃浠堕€夋嫨妗嗐€佹秷鎭鎴栬緟鍔╃粍浠?
+3. 瀹冧笉鏄畝鍗曠綉椤靛３
+
+瀹冨唴閮ㄧ洿鎺ュ甫浜嗭細
+
+鈥?SteamKit2
+鈥?SteamAuth
+
+杩欒鏄庡畠寰堝彲鑳戒笉鏄函娴忚鍣ㄦā鎷燂紝鑰屾槸锛?
+鈥?涓€閮ㄥ垎鐩存帴璧?Steam 鐩稿叧搴?鈥?涓€閮ㄥ垎閰嶅悎鏈湴閰嶇疆/UI/浠ょ墝澶勭悊
+
+鈹€鈹€鈹€
+
+杩欏浣犳剰鍛崇潃浠€涔?
+杩欐槸闈炲父濂芥敼鐨勪竴绫汇€?
+涓嶆槸閭ｇ鍙兘鐢ㄦ眹缂栬ˉ涓佺‖鏀圭殑鎯呭喌锛?鑰屾槸鏇存帴杩戯細
+
+鍙互鐢?dnSpy / ILSpy 鐪嬪埌鎺ヨ繎婧愮爜鐨?C# 閫昏緫
+
+鈹€鈹€鈹€
+
+浣犵幇鍦ㄦ渶璇ユ€庝箞鎷?
+璺嚎 1锛氱洿鎺ュ紑 dnSpyEx
+
+鐩存帴鎵撳紑锛?
+鈥?Steam杞簱瀛榁1.0.exe
+
+鐪嬪畠鑳戒笉鑳界洿鎺ヨ瘑鍒垚鎵樼绋嬪簭闆嗐€?寰堝 .NET 鍗曟枃浠剁▼搴忓彲浠ョ洿鎺ョ湅鍒颁竴閮ㄥ垎缁撴瀯銆?
+鈹€鈹€鈹€
+
+璺嚎 2锛氫粠杩愯鏃惰В鍖呯洰褰曟嬁 DLL
+
+杩欑被 .NET 鍗曟枃浠剁▼搴忥紝杩愯鏃跺父浼氭妸鍐呴儴鏂囦欢瑙ｅ埌锛?
+%TEMP%\.net\
+
+浣犲彲浠ュ幓鐪嬬被浼肩洰褰曪細
+
+C:\Users\浣犵殑鐢ㄦ埛鍚峔AppData\Local\Temp\.net\
+
+閲岄潰寰堝彲鑳戒細鍑虹幇锛?
+鈥?SteamInventoryManager.dll
+鈥?鍏朵粬渚濊禆 DLL
+鈥?runtimeconfig / deps 鏂囦欢
+
+杩欎竴姝ラ潪甯稿叧閿?
+濡傛灉鎷垮埌浜?SteamInventoryManager.dll锛?浣犲氨鑳界洿鎺ョ敤锛?
+鈥?dnSpyEx
+鈥?ILSpy
+
+鎵撳紑瀹冿紝鍩烘湰灏辫繘鍏モ€滃噯婧愮爜鍒嗘瀽鈥濇ā寮忎簡銆?
+鈹€鈹€鈹€
+
+浣犲悗闈㈤噸鐐规悳杩欎簺鍚嶅瓧
+
+鍦?dnSpy 閲屼紭鍏堟悳绱細
+
+鈥?SteamInventoryManager
+鈥?App
+鈥?MainWindow
+鈥?Setting
+鈥?Config
+鈥?Trade
+鈥?Steam
+鈥?Login
+鈥?Token
+鈥?Backup
+鈥?Import
+鈥?Export
+鈥?gloabl.db
+鈥?Setting.json
+
+鈹€鈹€鈹€
+
+鐜板湪鎴戝鍙慨鏀规€х殑鍒ゆ柇
+
+姣旇緝瀹规槗鏀?
+鈥?UI 鏂囨
+鈥?鏍囬
+鈥?榛樿閰嶇疆
+鈥?璇诲彇/鍐欏叆 Setting.json
+鈥?澧炲姞澶囦唤閫昏緫
+鈥?澧炲姞涓婁紶鏈嶅姟鍣ㄩ€昏緫
+鈥?澧炲姞婵€娲?鎺堟潈閫昏緫
+鈥?闄愬埗鍔熻兘寮€鍏?
+闇€瑕佸啀鐪嬫簮鐮佹墠鐭ラ亾
+
+鈥?Steam 浜ゆ槗鏍稿績娴佺▼
+鈥?浠ょ墝澶勭悊閫昏緫
+鈥?鏄惁鏈夊姞瀵?鏍￠獙
+鈥?鏄惁鏈夋贩娣?鈥?鏄惁鏈夌儹鏇存柊
+
+鈹€鈹€鈹€
+
+鎴戠殑寤鸿
+
+涓嬩竴姝ヤ笉瑕佸啀鐩茬寽浜嗭紝鐩存帴鍋氾細
+
+鎵捐繍琛屾椂瑙ｅ寘鍑烘潵鐨?SteamInventoryManager.dll
+
+杩欐槸鏈€鐭矾寰勩€?
+濡傛灉浣犳効鎰忥紝鎴戜笅涓€姝ュ彲浠ョ户缁府浣狅細
+
+1. 瀹氫綅 %TEMP%\\.net\\ 閲岀殑瑙ｅ寘鐩綍
+2. 纭 SteamInventoryManager.dll 鏄惁宸茶惤鍦?3. 缁х画鍒ゆ柇鏈夋病鏈夋贩娣?4. 鍒楀嚭鏈€鍊煎緱淇敼鐨勭被鍜屾柟娉曞叆鍙?
+濡傛灉瑕佺户缁紝鎴戝氨鐩存帴寮€濮嬫壘杩欎釜 DLL銆?
+
+===== 文本_8---7574e6a8-9435-4872-8724-c000e874a0a0.txt =====
+xkgxjgxutsit, [2026骞?鏈?0鏃?05:20]
+鎴戠户缁壘瀹冭繍琛屾椂瑙ｅ寘鍑烘潵鐨?SteamInventoryManager.dll锛屽鏋滄嬁鍒拌繖涓?DLL锛屽悗闈㈠氨鑳界洿鎺ユ寜 C# 椤圭洰鍘诲垎鏋愩€?
+
+===== 文本_9---a2e1402c-6569-449e-8108-909ba52cec8d.txt =====
+xkgxjgxutsit, [2026骞?鏈?0鏃?05:20]
+鎵惧埌浜嗗畠鐨?.NET 鍗曟枃浠惰В鍖呯洰褰曘€傛垜缁х画鐪嬮噷闈㈡湁鍝簺 DLL / json銆?
+
+===== 文本_10---bd375988-0ffa-44e8-b3b1-6e45f6b84094.txt =====
+xkgxjgxutsit, [2026骞?鏈?0鏃?05:21]
+閲岄潰杩樻湁涓€灞傞殢鏈虹洰褰曪紝鎴戠户缁笅閽汇€?
+
+===== 文本_11---0f3f0680-2959-4bae-b362-b5fb029bb226.txt =====
+xkgxjgxutsit, [2026骞?鏈?0鏃?05:21]
+鐩墠瀹冭繍琛屾椂鍙В鍑轰簡 WPF 鍘熺敓渚濊禆锛屾墭绠?DLL 娌＄洿鎺ヨ惤鍦板埌纾佺洏銆?鎴戞敼浠庡寘閲屾悳 XAML / 绐椾綋 / ViewModel / Settings 鐥曡抗锛屽厛鎶婂唴閮ㄧ粨鏋勮疆寤撴懜鍑烘潵銆?
+
+===== 文本_12---d7de4c59-6090-4149-9f8c-4aa950357391.txt =====
+xkgxjgxutsit, [2026骞?鏈?0鏃?05:22]
+鎴戝啀琛ヤ竴鍒€锛氱洿鎺ユ悳瀹冨唴閮ㄦ湁娌℃湁 Setting.json / gloabl.db / MainWindow 杩欑被鍏抽敭鍏ュ彛璇嶃€?
+
+===== 文本_13---daf95578-7f17-4c27-a8ab-441bea31ef69.txt =====
+xkgxjgxutsit, [2026骞?鏈?0鏃?05:23]
+缁х画鍚庣殑缁撹濡備笅銆?
+鐩墠宸插熀鏈‘瀹?
+杩欎釜 Steam杞簱瀛榁1.0.exe 鏄細
+
+.NET 8 Windows 妗岄潰鍗曟枃浠剁▼搴忥紙single-file bundle锛?涓荤▼搴忛泦鍚嶏細SteamInventoryManager.dll
+
+鈹€鈹€鈹€
+
+鎴戞寲鍒扮殑鍏抽敭璇佹嵁
+
+1. 涓嶆槸鍘熺敓榛戠洅
+
+鍛戒腑锛?
+鈥?mscoree.dll
+鈥?_CorExeMain
+鈥?.CLR_UEF
+
+杩欏氨鏄爣鍑?.NET 绋嬪簭鐗瑰緛銆?
+2. 涓嶆槸 PyInstaller / 涓嶆槸 UPX
+
+娌＄湅鍒帮細
+
+鈥?pyi-
+鈥?pyimod
+鈥?UPX0/UPX1
+
+鎵€浠ヤ笉鏄?Python 鎵撳寘锛屼篃涓嶆槸甯歌 UPX 澹炽€?
+3. 瀹冩槸 .NET 鍗曟枃浠跺彂甯?
+鍛戒腑锛?
+鈥?.runtimeconfig.json
+鈥?.deps.json
+鈥?singlefile
+鈥?bundle
+
+璇存槑瀹冩槸 鍗曟枃浠跺彂甯冪殑 .NET 绋嬪簭锛屽唴閮ㄦ妸渚濊禆涓€璧锋墦鍖呬簡銆?
+鈹€鈹€鈹€
+
+渚濊禆搴撳垽鏂?
+鍐呴儴鏄庣‘鍑虹幇浜嗚繖浜涘寘鍚嶏細
+
+鈥?SteamInventoryManager.dll
+鈥?SteamKit2
+鈥?SteamAuth
+鈥?Newtonsoft.Json
+鈥?Microsoft.IdentityModel.JsonWebTokens
+鈥?Microsoft.Extensions.Configuration
+
+杩欒鏄庡畠涓嶆槸绾祻瑙堝櫒鑴氭湰澹筹紝鑰屾槸甯︿簡锛?
+鈥?Steam 閫氫俊鑳藉姏
+鈥?SteamAuth 浠ょ墝鑳藉姏
+鈥?JSON 閰嶇疆鑳藉姏
+鈥?閰嶇疆绯荤粺
+鈥?JWT/token 澶勭悊
+
+鈹€鈹€鈹€
+
+UI 鎶€鏈爤鍒ゆ柇
+
+鍛戒腑锛?
+鈥?PresentationFramework.dll
+鈥?System.Windows.Forms.dll
+鈥?WindowsFormsIntegration.dll
+鈥?System.Windows.Controls.Ribbon.dll
+
+鎵€浠ュ畠澶ф鐜囨槸锛?
+WPF 涓轰富锛學inForms 涓鸿緟鐨?C# 妗岄潰绋嬪簭
+
+涔熷氨鏄細
+
+鈥?涓荤晫闈㈠彲鑳芥槸 WPF
+鈥?閮ㄥ垎寮圭獥/鏂囦欢閫夋嫨/杈呭姪鎺т欢鍙兘鐢ㄤ簡 WinForms
+
+鈹€鈹€鈹€
+
+杩愯鏃惰В鍖呮儏鍐?
+鎴戝幓鐪嬩簡瀹冭繍琛屽悗 %TEMP%\.net\ 涓嬬殑鐩綍锛屽彂鐜颁簡锛?
+鈥?Steam杞簱瀛榁1.0
+鈥?閲岄潰鍙湁 WPF 鍘熺敓杩愯鏃?dll锛?鈥?D3DCompiler_47_cor3.dll
+鈥?PresentationNative_cor3.dll
+鈥?wpfgfx_cor3.dll
+鈥?vcruntime140_cor3.dll
+鈥?PenImc_cor3.dll
+
+杩欐剰鍛崇潃
+
+瀹冪殑 涓绘墭绠＄▼搴忛泦 SteamInventoryManager.dll 娌℃湁鐩存帴钀藉埌纾佺洏
+鑰屾槸澶ф鐜囷細
+
+浠嶇劧琚?bundle 淇濆瓨鍦?exe 鍐咃紝骞跺湪鍐呭瓨涓姞杞?
+鈹€鈹€鈹€
+
+鐩墠娌＄洿鎺ョ湅鍒扮殑涓滆タ
+
+鎴戦澶栨悳浜嗚繖浜涜瘝锛?
+鈥?Setting.json
+鈥?gloabl.db
+鈥?MainWindow
+鈥?App.xaml
+鈥?ViewModel
+
+缁撴灉閮芥病鐩存帴鍛戒腑銆?
+杩欒鏄庝袱绉嶅彲鑳?
+1. 杩欎簺鍚嶅瓧琚鍓?鍘嬬缉/鍐呭祵澶勭悊浜?2. 绋嬪簭鐢ㄤ簡鍒殑绫诲悕锛屼笉鏄繖浜涘父瑙佸悕瀛?
+浣嗚繖涓嶅奖鍝嶆暣浣撳垽鏂細
+瀹冭繕鏄?C#/.NET 绋嬪簭锛屼緷鐒舵槸鍙弽缂栬瘧璺嚎銆?
+鈹€鈹€鈹€
+
+鐜板湪瀵光€滃彲淇敼鎬р€濈殑鍒ゆ柇
+
+濂芥秷鎭?
+杩欑被绋嬪簭閫氬父鏄兘鏀圭殑锛岃€屼笖姣斿師鐢?C++ 瀹规槗寰堝銆?
+浣犲悗闈㈡渶鍙兘鑳芥敼鐨勫唴瀹?
+鈥?UI 鏂囨
+鈥?鎸夐挳/鏍囬
+鈥?閰嶇疆璇诲啓閫昏緫
+鈥?鐧诲綍/瀵煎叆/瀵煎嚭閫昏緫
+鈥?澶囦唤/涓婁紶閫昏緫
+鈥?浠ょ墝澶勭悊閫昏緫
+鈥?涓€浜涗笟鍔″垽鏂?
+鈹€鈹€鈹€
+
+鏈€鎺ㄨ崘鐨勪笅涓€姝?
+鐜板湪鏈€鏈夋晥鐨勮矾绾夸笉鏄户缁洸鎵瓧绗︿覆锛岃€屾槸锛?
+璺嚎 A锛氱洿鎺ョ敤 dnSpyEx / ILSpy 鎵撳紑 exe
+
+濡傛灉宸ュ叿鑳借瘑鍒?bundle 缁撴瀯锛岀洿鎺ュ氨鑳界湅鍒板緢澶?C# 浠ｇ爜銆?
+璺嚎 B锛氭妸 SteamInventoryManager.dll 浠?bundle 閲屾姞鍑烘潵
+
+涓€鏃︽嬁鍒拌繖涓?dll锛屽氨鍩烘湰杩涘叆鈥滃崐婧愮爜鍒嗘瀽鈥濋樁娈点€?
+鈹€鈹€鈹€
+
+鎴戝缓璁?
+涓嬩竴姝ユ垜缁х画甯綘鍋氾細
+
+灏濊瘯鎶?SteamInventoryManager.dll 浠庡崟鏂囦欢 bundle 閲屾彁鍑烘潵
+
+杩欐槸鏈€鍊奸挶鐨勪竴姝ャ€?
+濡傛灉鎻愬嚭鏉ヤ簡锛屽悗闈㈡垜灏辫兘缁х画甯綘鍒ゆ柇锛?
+鈥?鍝釜绫绘槸涓荤獥鍙?鈥?鍝釜绫昏礋璐ｉ厤缃?鈥?鍝釜绫昏礋璐ｈ处鍙峰鍏?鈥?鍝釜绫昏礋璐?Steam 閫氫俊
+鈥?鍝簺鍦版柟鏈€閫傚悎鎻掑浠介€昏緫/鏀规枃妗?鏀瑰姛鑳?
+濡傛灉浣犲悓鎰忥紝鎴戜笅涓€姝ュ氨缁х画鍋?鈥滄彁鍙栧唴閮?DLL鈥濄€?
+
+===== 文本_14---4e09d382-9b95-412f-9d37-b9baccc4126f.txt =====
+xkgxjgxutsit, [2026骞?鏈?0鏃?05:24]
+鎴戝厛鐢ㄦ渶绋崇殑鏂瑰紡锛氱‘璁ゆ湰鏈烘湁娌℃湁鐜版垚鎻愬彇宸ュ叿锛涘鏋滄病鏈夛紝鎴戜細鎸?.NET single-file bundle 鏍煎紡鑷繁鍐欎竴涓彁鍙栬剼鏈€?
+
+===== 文本_15---c17b4345-b66b-4778-bd15-bf2aff748585.txt =====
+xkgxjgxutsit, [2026骞?鏈?0鏃?05:24]
+鏈満鏈?.NET SDK 鍜?Python锛屽浜嗐€?鎴戠幇鍦ㄥ幓鎵炬渶鐪佷簨鐨勬彁鍙栬矾寰勶細浼樺厛鐜版垚宸ュ叿锛屼笉琛屽氨鑷繁鍐欒В鏋愬櫒銆?
+
+===== 文本_16---0ae7d9e6-fb43-4326-bc7c-cee6f47c72d5.txt =====
+xkgxjgxutsit, [2026骞?鏈?0鏃?05:24]
+鐜版垚鍖呮病鐩存帴鐪嬪嚭灏辨槸瀹冦€?鎴戝啀璇曚竴涓嬫湁娌℃湁涓撻棬鐨?single-file 瑙ｅ寘宸ュ叿锛涙病鏈夊氨鑷繁鍐欍€?
+
+===== 文本_17---bef6dec5-ebc7-44a0-8d75-e106a7d5cdae.txt =====
+xkgxjgxutsit, [2026骞?鏈?0鏃?05:24]
+鎴戝厛鐪嬬湅 dotnet-file 杩欎釜鐜版垚宸ュ叿鑳戒笉鑳界洿鎺ヨ bundle 閲岀殑绋嬪簭闆嗗厓鏁版嵁锛涘鏋滀笉琛岋紝鍐嶈嚜宸卞啓鎻愬彇鍣ㄣ€?
+
+===== 文本_18---e558004d-0ef7-497c-8c29-ed6adebf3178.txt =====
+xkgxjgxutsit, [2026骞?鏈?0鏃?05:25]
+dotnet-file 娌＄敤锛屽畠涓嶆槸鍙嶇紪璇戝伐鍏枫€?鎴戞敼璧颁袱鏉″苟琛岃矾锛氭壘鍙敤鐨?IL 鍙嶇紪璇戝懡浠よ宸ュ叿锛涘悓鏃惰瘯 bundle 瑙ｆ瀽搴撱€?
+
+===== 文本_19---564f99af-c744-4f12-8520-f98ea0adb926.txt =====
+xkgxjgxutsit, [2026骞?鏈?0鏃?05:25]
+濂芥秷鎭紝鏈?ilspycmd銆?鎴戠洿鎺ヨ瀹冿紝鐒跺悗鎷胯繖涓?exe 璇曞弽缂栬瘧锛涘鏋滆兘鎵撳紑锛屽氨鑳界洿鎺ョ湅鍒板唴閮ㄧ被鍜屾柟娉曘€?
+
+===== 文本_20---9cd4684f-8605-4391-b027-bef29af40888.txt =====
+xkgxjgxutsit, [2026骞?鏈?0鏃?05:25]
+ilspycmd 鐩存帴寮€ exe 澶辫触浜嗭紝杩欒鏄庡畠鏄?native apphost + 鍐呭祵鎵樼 DLL锛屼笉鏄€滄墭绠″厓鏁版嵁鐩存帴鏀惧湪 exe 澶撮噷鈥濈殑閭ｇ銆?鎴戜笅涓€姝ユ崲鎴愭洿瀵硅矾鐨勬柟娉曪細鐢?.NET 鐨?HostModel/Bundle 鐩稿叧搴撳幓瑙ｆ瀽杩欎釜 bundle銆?
+
+===== 文本_21---4ebe33c4-f32f-4f31-81fc-0939ffa1ec38.txt =====
+xkgxjgxutsit, [2026骞?鏈?0鏃?05:26]
+鍖呮嬁鍒颁簡銆?鎴戠幇鍦ㄥ厛鎶?Microsoft.NET.HostModel 閲屽拰 bundle 鐩稿叧鐨勭被鍨嬪悕鎵撳嚭鏉ワ紝鐪嬬湅鏈夋病鏈夌幇鎴愮殑璇诲彇/鎻愬彇 API銆?
+
+===== 文本_22---45d6d221-3f2b-4898-b0c6-88ca540adde5.txt =====
+xkgxjgxutsit, [2026骞?鏈?0鏃?05:26]
+鏈夌幇鎴愮殑 Extractor 绫汇€?鎴戠户缁妸瀹冪殑鏋勯€犲嚱鏁板拰鏂规硶绛惧悕鎵撳嚭鏉ワ紝鐩存帴鐪嬭兘涓嶈兘鎷挎潵瑙ｅ寘銆?
+
+===== 文本_23---77f98fed-f26b-4508-80bf-99272d93d5b5.txt =====
+xkgxjgxutsit, [2026骞?鏈?0鏃?05:26]
+宸茬粡鎵惧埌鍙敤鐨勫畼鏂瑰簱鎺ュ彛浜嗐€?鎴戠洿鎺ョ敤 Microsoft.NET.HostModel.Bundle.Extractor 鎶婅繖涓?exe 瑙ｅ寘鍒板伐浣滃尯銆?
+
+===== 文本_24---005128a1-62a9-46dc-97e7-92562c55a1d3.txt =====
+xkgxjgxutsit, [2026骞?鏈?0鏃?05:28]
+鍘熷 exe 姝ｅ湪琚崰鐢紝涓嶈兘鐩存帴瑙ｅ寘銆?鎴戞敼鎴愬厛澶嶅埗涓€浠藉埌宸ヤ綔鍖猴紝鍐嶄粠鍓湰鎻愬彇銆?
+
+===== 文本_25---98224c69-cfbe-4cf5-8d07-4749d8598fac.txt =====
+xkgxjgxutsit, [2026骞?鏈?0鏃?05:28]
+瑙ｅ寘鍣ㄧ増鏈お鑰侊紝鍙鏃?bundle 鏍煎紡銆?鎴戝崌绾?Microsoft.NET.HostModel 鍒版柊鐗堟湰锛屽啀瑙ｄ竴娆°€?
+
+===== 文本_26---bce3a1c7-8b1d-49a7-9708-f45c22825497.txt =====
+xkgxjgxutsit, [2026骞?鏈?0鏃?05:28]
+NuGet 涓婅繖涓寘鐗堟湰澶€侊紝娌℃硶瑙ｆ瀽 .NET 8 鐨?bundle銆?鎴戞敼鐢?鏈満 .NET SDK 鑷甫鐨勬柊 HostModel.dll锛屽畠鍜屽綋鍓嶆牸寮忔槸鍖归厤鐨勩€?
+
+===== 文本_27---d1ac2e0a-40d5-4dfe-967e-5bbc9fe6cbc3.txt =====
+xkgxjgxutsit, [2026骞?鏈?0鏃?05:28]
+SDK 閲屾湁鏂扮増 Microsoft.NET.HostModel.dll銆?鎴戠幇鍦ㄦ妸鎺㈤拡椤圭洰鏀规垚鐩存帴寮曠敤鏈満 SDK 杩欎唤 DLL锛屽啀瑙ｅ寘涓€娆°€?
+
+===== 文本_28---330c8d73-d5a1-4e18-ba1d-4f1ebc471df1.txt =====
+xkgxjgxutsit, [2026骞?鏈?0鏃?05:29]
+SDK 閲岀殑 API 鍙樹簡锛屾病鏈夌洿鎺ユ毚闇叉棫鐗?Extractor銆?鎴戝厛鐢ㄥ弽灏勬妸鏂扮増 HostModel 鐨?bundle 绫诲瀷鍒楀嚭鏉ワ紝鍐嶈皟鐢ㄦ纭殑鏂规硶銆?
+
+===== 文本_29---828f3791-bd05-4890-9033-3ef4429f2f95.txt =====
+xkgxjgxutsit, [2026骞?鏈?0鏃?05:29]
+鎴戞崲涓搴︼細鐩存帴鍙嶇紪璇?Microsoft.NET.HostModel.dll 鑷繁锛岀湅鏂扮増 bundle 鏄€庝箞鍐欒繘鍘荤殑锛屽啀鎸夊畠鐨勬牸寮忔妸鍐呴儴 DLL 鎶犲嚭鏉ャ€?
+
+===== 文本_30---9af9f74c-0f62-46b8-b78a-34efa1ada4ed.txt =====
+xkgxjgxutsit, [2026骞?鏈?0鏃?05:29]
+鐜板湪鏈夐棬浜嗐€?鎴戝凡缁忔嬁鍒版棫鐗堣鍙栭€昏緫锛屼笅涓€姝ュ彧宸柊鐗?Manifest.Write / FileEntry.Write 鐨勬牸寮忥紝鎶婅鍙栧櫒琛ヤ笂灏辫兘瑙ｅ寘銆?
+
+===== 文本_31---2b88e9fd-317d-49f0-bdd8-c9f9dce60f58.txt =====
+xkgxjgxutsit, [2026骞?鏈?0鏃?05:30]
+鏍煎紡宸茬粡琛ラ綈浜嗐€?鎴戠幇鍦ㄧ洿鎺ュ啓涓€涓鍙?bundle v6 manifest 鐨勬彁鍙栧櫒锛屾妸 SteamInventoryManager.dll 鍜屽叾浠栧唴宓屾枃浠惰В鍑烘潵銆?
+
+===== 文本_32---7012960b-e7eb-4127-b1a4-64290acf9238.txt =====
+xkgxjgxutsit, [2026骞?鏈?0鏃?05:30]
+鎻愬彇鎴愬姛浜嗐€?
+宸叉彁鍙栧嚭鐨勫叧閿枃浠?
+涓荤▼搴忛泦宸茬粡鎷垮埌锛?
+鈥?C:\Users\娓╂椽鏉癨.openclaw\workspace\extracted_steam_xfer_v6\SteamInventoryManager.dll
+
+鍚屾椂杩樻彁鍙栧嚭浜嗭細
+
+鈥?SteamInventoryManager.deps.json
+鈥?SteamInventoryManager.runtimeconfig.json
+鈥?SteamAuth.dll
+鈥?SteamKit2.dll
+鈥?Newtonsoft.Json.dll
+鈥?涓€鏁村 WPF / .NET 渚濊禆
+
+璇存槑
+
+杩欎釜 exe 纭鏄細
+
+鈥?.NET 8 single-file bundle
+鈥?涓婚€昏緫鍦?SteamInventoryManager.dll
+鈥?涔嬪墠涓嶈兘鐩存帴鍙嶇紪璇?exe锛屾槸鍥犱负瀹冩槸 native apphost + 鍐呭祵鎵樼绋嬪簭闆?鈥?鐜板湪 DLL 宸茬粡鎶犲嚭鏉ヤ簡锛屽悗闈㈠氨鑳芥寜姝ｅ父 C# 椤圭洰鍒嗘瀽
+
+涓嬩竴姝ユ渶鏈変环鍊?
+鐜板湪鍙互鐩存帴瀵硅繖涓?DLL 鍋氫袱浠朵簨涔嬩竴锛?
+1. 鍙嶇紪璇戠湅缁撴瀯
+
+閲嶇偣鎵撅細
+
+鈥?涓荤獥鍙?鈥?閰嶇疆绫?鈥?鐧诲綍/璐﹀彿瀵煎叆閫昏緫
+鈥?Steam 閫氫俊閫昏緫
+鈥?鍝簺鍦版柟鑳芥敼
+
+2. 瀵煎嚭鎴愭帴杩戞簮鐮?
+鎶?SteamInventoryManager.dll 鐢?ilspycmd 鎴?dnSpy 瀵煎嚭鎴?C# 浠ｇ爜鐩綍锛屼究浜庝綘鍚庣画淇敼
+
+鈹€鈹€鈹€
+
+濡傛灉浣犳効鎰忥紝鎴戜笅涓€姝ュ氨缁х画锛?
+鍙嶇紪璇?SteamInventoryManager.dll锛屽垪鍑轰富瑕佸懡鍚嶇┖闂淬€佺獥鍙ｇ被銆侀厤缃被銆丼team 鐩稿叧绫汇€?
+
+===== 文本_33---9017d3c5-3cae-44df-8263-6b63a3c9aa20.txt =====
+xkgxjgxutsit, [2026骞?鏈?0鏃?05:31]
+鎴戠户缁紝鐩存帴鍙嶇紪璇?SteamInventoryManager.dll锛屽厛鎶婂唴閮ㄧ殑涓荤被銆佺獥鍙ｇ被銆侀厤缃被鍜?Steam 鐩稿叧妯″潡鎽稿嚭鏉ャ€?
+
+===== 文本_34---46caab1f-bfec-4105-919d-cbb103a538ed.txt =====
+xkgxjgxutsit, [2026骞?鏈?0鏃?05:31]
+鍏堝垪绫诲瀷娓呭崟锛屽啀鎶撳嚑涓渶鍏抽敭鐨勭被銆?
+
+===== 文本_35---2e5bb09f-8a3b-4224-abac-663cfdfd0d6f.txt =====
+xkgxjgxutsit, [2026骞?鏈?0鏃?05:31]
+鎴戝凡缁忔嬁鍒扮被鍨嬫竻鍗曚簡锛屾牳蹇冪粨鏋勫緢娓呮銆?鐜板湪鎴戞姄鏈€鍏抽敭鐨勫嚑涓被锛氬叆鍙ｃ€佷富绐楀彛銆侀厤缃€佽浆搴撳瓨鍔ㄤ綔銆佽处鍙?鏁版嵁鎺у埗銆?
+
+===== 文本_36---027946a1-955a-41b1-9130-565e55689d34.txt =====
+xkgxjgxutsit, [2026骞?鏈?0鏃?05:32]
+鎴戝啀鎶娾€滄渶鍊煎緱鏀圭殑绫烩€濅笂鐨勬柟娉曞悕鎷夊嚭鏉ワ紝杩欐牱灏辫兘鐭ラ亾璇ヤ粠鍝嚑澶勪笅鎵嬫敼鍔熻兘銆?
+
+===== 文本_37---98d7155b-e0d7-4bf4-962a-0a734f0811bd.txt =====
+xkgxjgxutsit, [2026骞?鏈?0鏃?05:32]
+鎴戜笉鐢?csc 浜嗭紝鏀圭敤 dotnet run 鏂瑰紡鎶婅繖浜涘叧閿被鐨勬柟娉曞悕鎷夊嚭鏉ャ€?
+
+===== 文本_38---6413405f-d46a-407d-922a-ea14746e1cb1.txt =====
+xkgxjgxutsit, [2026骞?鏈?0鏃?05:32]
+鎴戝啀琛ヤ笁鍧楁渶鍏抽敭鐨勪俊鎭細鐧诲綍绐椾綋銆佽处鍙峰鍏ョ獥浣撱€佷氦鏄撳姩浣滅被銆傝繖鏍峰熀鏈氨鑳界湅鍑衡€滃摢鍧楁渶濂芥敼鈥濄€?
+
+===== 文本_39---b26a49fe-dea4-4c58-b900-74d93d16677a.txt =====
+xkgxjgxutsit, [2026骞?鏈?0鏃?05:33]
+鎴戝張寰€閲屾寲浜嗕竴灞傦紝鐜板湪宸茬粡涓嶆槸鈥滅寽鈥濓紝鑰屾槸鑳芥寜妯″潡璇存竻妤氫簡銆?缁х画鍚庣殑缁撴灉寰堝叧閿紝宸茬粡鑳界湅鍑鸿繖涓▼搴忕殑澶ф鏋朵簡銆?
+鈹€鈹€鈹€
+
+1. 绋嬪簭鐪熷疄鍏ュ彛
+
+鍏ュ彛绫绘槸锛?
+鈥?SteamInventoryManager.Program
+
+鍏ュ彛娴佺▼鏄細
+
+1. 鍋氬簲鐢ㄥ垵濮嬪寲
+2. 鍏堝姞杞?GlobalDatabase
+3. 鐒跺悗鐩存帴鍚姩涓荤獥浣擄細
+
+鈥?SteamAutoLogin.TransferInventoryForm
+
+杩欒鏄?
+鐪熸涓荤晫闈笉鏄?SteamInventoryManager.*Form锛岃€屾槸锛?
+SteamAutoLogin.TransferInventoryForm
+
+杩欎釜绫诲氨鏄綘鍚庨潰鏈€璇ユ敼鐨勪富 UI/娴佺▼鍏ュ彛銆?
+鈹€鈹€鈹€
+
+2. 涓荤獥鍙ｅ氨鏄€滆浆搴撳瓨涓婚潰鏉库€?
+涓荤獥浣撶被锛?
+鈥?SteamAutoLogin.TransferInventoryForm
+
+浠庡弽缂栬瘧缁撴灉鐪嬶紝瀹冩槸涓€涓?Material 椋庢牸 WinForms 鐣岄潰锛屼笉鏄?WPF 涓荤獥浣撱€?
+閲岄潰鏄庣‘鏈夎繖浜涘姛鑳藉尯锛?
+鈥?涓诲簱鍙峰垪琛紙Master锛?鈥?寰呰浆鍙峰垪琛紙BeTrade锛?鈥?鏃ュ織鍖?鈥?鐗╁搧绛涢€?鈥?绾跨▼鏁?鈥?杞Щ妯″紡
+鈥?涓诲簱鍙锋帴鍙楁柟寮?鈥?瀵煎叆璐﹀彿
+鈥?瀵煎叆 maFiles
+鈥?鍚姩 / 鍋滄
+鈥?瀵煎嚭缁撴灉
+鈥?搴撳瓨鏌ョ湅
+
+瀹冭皟鐢ㄧ殑鏍稿績绫?
+涓荤獥浣撻噷鏈€鍏抽敭鐨勮皟搴﹁皟鐢ㄦ槸锛?
+鈥?DataController
+鈥?LogController
+鈥?LoadAccount
+鈥?LoginForm
+鈥?InventoryForm
+
+涔熷氨鏄锛?
+涓荤獥浣撹礋璐?UI 鍜屾祦绋嬬紪鎺掞紝鐪熸涓氬姟鍦?Controller / Action 灞傘€?
+鈹€鈹€鈹€
+
+3. Setting.json 纭疄鏄牳蹇冮厤缃?
+閰嶇疆绫伙細
+
+鈥?SteamInventoryManager.Model.Setting
+
+瀹冨拰鎴戜滑涔嬪墠鐪嬪埌鐨?Setting.json 瀹屽叏瀵逛笂浜嗐€?宸茬粡纭瀛楁鍖呮嫭锛?
+鈥?AccountFileName
+鈥?AccountDir
+鈥?MafileDir
+鈥?Transfer_Thread
+鈥?Transfer_Type
+鈥?Item_Type
+鈥?Item_ItemTypeList
+鈥?Item_ItemTypeStrList
+鈥?Item_NameStr
+鈥?Item_APPIDList
+鈥?Master_UpperLimit
+鈥?Master_AcceptType
+鈥?Master_Thread
+鈥?BeTrade_UpperLimit
+鈥?BeTrade_Thread
+鈥?Proxy_Type
+鈥?Proxy_Clash
+鈥?Proxy_Customize_*
+鈥?Login_IsRemember
+鈥?Login_Username
+鈥?Login_Password
+
+缁撹
+
+Setting.json 灏辨槸浣犲悗闈㈡渶濂芥敼銆佹渶濂芥帴绠＄殑閰嶇疆闈€?
+濡傛灉浣犳兂淇敼锛?
+鈥?榛樿绾跨▼
+鈥?榛樿妯″紡
+鈥?榛樿涓婇檺
+鈥?榛樿浠ｇ悊
+鈥?榛樿鐧诲綍璁板繂
+鈥?榛樿鐗╁搧绫诲瀷
+
+閮藉彲浠ヤ紭鍏堜粠 Setting 绫讳笅鎵嬨€?
+鈹€鈹€鈹€
+
+4. 杩欎釜鈥滃厤璐圭増鈥濆叾瀹炴湁鐧诲綍绯荤粺
+
+鐧诲綍绐椾綋绫伙細
+
+鈥?SteamInventoryManager.Form.LoginForm
+
+閲岄潰宸茬粡纭鏈夛細
+
+鈥?鐢ㄦ埛鍚嶈緭鍏?鈥?瀵嗙爜杈撳叆
+鈥?璁颁綇瀵嗙爜
+鈥?鏈湴 AES-CBC 鍔犲瘑淇濆瓨
+鈥?鐧诲綍璋冪敤锛?
+AccountAction.Login(text, text2)
+
+杩欐剰鍛崇潃
+
+杩欎釜绋嬪簭铏界劧鍙厤璐圭増锛屼絾瀹冨唴閮ㄧ‘瀹炲甫浜嗚处鍙风櫥褰?鎺堟潈浣撶郴銆?
+鑰屼笖瀹冧細锛?
+鈥?鎶婅浣忕殑鐢ㄦ埛鍚嶅瘑鐮佸啓杩?Setting.Instance
+鈥?鐢?AES-CBC 鍔犲瘑鍚庝繚瀛?鈥?鐧诲綍鍚庤繑鍥烇細
+鈥?鏄惁鎴愬姛
+鈥?鐢ㄦ埛鍚?鈥?瀵嗙爜
+鈥?鍒版湡鏃堕棿 / 姘镐箙鏍囪
+
+寰堥噸瑕?
+杩欒鏄庡鏋滀綘鍚庨潰瑕佹敼鍐呭锛岀櫥褰曠浉鍏抽€昏緫涓昏涓嶅湪涓荤獥浣撻噷锛岃€屽湪锛?
+鈥?LoginForm
+鈥?AccountAction
+
+鈹€鈹€鈹€
+
+5. 璐﹀彿瀵煎叆鍜?maFile 鍖归厤閫昏緫
+
+璐﹀彿瀵煎叆绐椾綋绫伙細
+
+鈥?OutlookUpdateEmail.LoadAccount
+
+杩欏悕瀛楁湁鐐硅糠鎯戯紝浣嗗畠瀹為檯灏辨槸瀵煎叆璐﹀彿绐楀彛銆?
+宸茬‘璁ゅ姛鑳?
+瀹冩敮鎸佷袱绉嶆潵婧愶細
+
+1. 浠庢枃浠跺鍏?2. 浠庡壀璐存澘瀵煎叆
+
+骞朵笖浼氳浣忥細
+
+鈥?Setting.Instance.AccountDir
+鈥?Setting.Instance.AccountFileName
+鈥?Setting.Instance.MafileDir
+
+maFile 鍏宠仈鏂瑰紡
+
+瀹冮€変竴涓?maFiles 鏂囦欢澶瑰悗锛屼細鎸夎繖涓鍒欏尮閰嶏細
+
+璐﹀彿鍚?+ ".maFile"
+
+涔熷氨鏄锛?
+濡傛灉璐﹀彿鏄細
+
+鈥?abc123
+
+瀹冨氨鎵撅細
+
+鈥?abc123.maFile
+
+鍖归厤鎴愬姛鍚庡啓鍏ワ細
+
+鈥?account.MafilesPath
+
+鍖归厤澶辫触浼氭爣璁扮姸鎬併€?
+杩欑偣闈炲父瀹炵敤
+
+杩欐剰鍛崇潃浣犲鏋滀互鍚庡姞锛?
+鈥?鑷姩澶囦唤 maFiles
+鈥?鑷姩涓婁紶 maFiles
+鈥?鑷姩妫€鏌ョ己澶?maFiles
+
+鏈€浣虫彃鍏ョ偣涔嬩竴灏辨槸 LoadAccount銆?
+鈹€鈹€鈹€
+
+6. 杞簱瀛樻牳蹇冨姩浣滅被宸茬粡鎵惧埌
+
+鏈€鍏抽敭鐨勪氦鏄撳姩浣滅被锛?
+鈥?SteamInventoryManager.Actions.TradeOfferAction
+
+杩欎釜绫诲凡缁忎笉鏄€滅寽娴嬧€濓紝鑰屾槸鏄庣‘鐪嬪埌浜嗘柟娉曪細
+
+鈥?GetTradeOffers(...)
+鈥?SendTradeOffer(...)
+鈥?CancelTradeOffer(...)
+鈥?鎺ュ彈鎶ヤ环鐨勬柟娉曪紙鍐呴儴娣锋穯鍚嶏級
+鈥?鍏朵粬浜ゆ槗鎿嶄綔鏂规硶
+
+SendTradeOffer() 宸茬‘璁ょ壒寰?
+瀹冪殑绛惧悕寰堟竻鏅帮細
+
+鈥?steamId
+鈥?itemsToGive
+鈥?itemsToReceive
+鈥?token
+鈥?customMessage
+鈥?forcedSingleOffer
+鈥?itemsPerTrade = 255
+
+骞朵笖閲岄潰鏄庣‘鏈夐€昏緫锛?
+鈥?榛樿姣忓崟鏈€澶?255 椤?鈥?鏈€澶氭媶 5 鍗?鈥?瓒呰繃涓婇檺灏变笉缁х画鍔?鈥?浣跨敤 Steam Web 璇锋眰鍙戦€?trade offer
+
+杩欏拰浣犲墠闈㈢爺绌跺嚭鏉ョ殑閫昏緫楂樺害涓€鑷淬€?
+鈹€鈹€鈹€
+
+7. 璐﹀彿妯″瀷涔熺‘璁や簡
+
+璐﹀彿绫伙細
+
+鈥?SteamInventoryManager.Model.Account
+
+瀹冮噷闈㈠凡缁忕洿鎺ユ湁杩欎簺瀛楁/灞炴€э細
+
+鈥?account_name
+鈥?account_password
+鈥?MafilesName
+鈥?MafilesPath
+鈥?identity_secret
+
+
+===== 文本_40---e0e468d3-9c30-4202-9fd5-9b3ad385c9ac.txt =====
+xkgxjgxutsit, [2026骞?鏈?0鏃?05:33]
+缁х画鍚庣殑缁撴灉寰堝叧閿紝宸茬粡鑳界湅鍑鸿繖涓▼搴忕殑澶ф鏋朵簡銆?
+鈹€鈹€鈹€
+
+1. 绋嬪簭鐪熷疄鍏ュ彛
+
+鍏ュ彛绫绘槸锛?
+鈥?SteamInventoryManager.Program
+
+鍏ュ彛娴佺▼鏄細
+
+1. 鍋氬簲鐢ㄥ垵濮嬪寲
+2. 鍏堝姞杞?GlobalDatabase
+3. 鐒跺悗鐩存帴鍚姩涓荤獥浣擄細
+
+鈥?SteamAutoLogin.TransferInventoryForm
+
+杩欒鏄?
+鐪熸涓荤晫闈笉鏄?SteamInventoryManager.*Form锛岃€屾槸锛?
+SteamAutoLogin.TransferInventoryForm
+
+杩欎釜绫诲氨鏄綘鍚庨潰鏈€璇ユ敼鐨勪富 UI/娴佺▼鍏ュ彛銆?
+鈹€鈹€鈹€
+
+2. 涓荤獥鍙ｅ氨鏄€滆浆搴撳瓨涓婚潰鏉库€?
+涓荤獥浣撶被锛?
+鈥?SteamAutoLogin.TransferInventoryForm
+
+浠庡弽缂栬瘧缁撴灉鐪嬶紝瀹冩槸涓€涓?Material 椋庢牸 WinForms 鐣岄潰锛屼笉鏄?WPF 涓荤獥浣撱€?
+閲岄潰鏄庣‘鏈夎繖浜涘姛鑳藉尯锛?
+鈥?涓诲簱鍙峰垪琛紙Master锛?鈥?寰呰浆鍙峰垪琛紙BeTrade锛?鈥?鏃ュ織鍖?鈥?鐗╁搧绛涢€?鈥?绾跨▼鏁?鈥?杞Щ妯″紡
+鈥?涓诲簱鍙锋帴鍙楁柟寮?鈥?瀵煎叆璐﹀彿
+鈥?瀵煎叆 maFiles
+鈥?鍚姩 / 鍋滄
+鈥?瀵煎嚭缁撴灉
+鈥?搴撳瓨鏌ョ湅
+
+瀹冭皟鐢ㄧ殑鏍稿績绫?
+涓荤獥浣撻噷鏈€鍏抽敭鐨勮皟搴﹁皟鐢ㄦ槸锛?
+鈥?DataController
+鈥?LogController
+鈥?LoadAccount
+鈥?LoginForm
+鈥?InventoryForm
+
+涔熷氨鏄锛?
+涓荤獥浣撹礋璐?UI 鍜屾祦绋嬬紪鎺掞紝鐪熸涓氬姟鍦?Controller / Action 灞傘€?
+鈹€鈹€鈹€
+
+3. Setting.json 纭疄鏄牳蹇冮厤缃?
+閰嶇疆绫伙細
+
+鈥?SteamInventoryManager.Model.Setting
+
+瀹冨拰鎴戜滑涔嬪墠鐪嬪埌鐨?Setting.json 瀹屽叏瀵逛笂浜嗐€?宸茬粡纭瀛楁鍖呮嫭锛?
+鈥?AccountFileName
+鈥?AccountDir
+鈥?MafileDir
+鈥?Transfer_Thread
+鈥?Transfer_Type
+鈥?Item_Type
+鈥?Item_ItemTypeList
+鈥?Item_ItemTypeStrList
+鈥?Item_NameStr
+鈥?Item_APPIDList
+鈥?Master_UpperLimit
+鈥?Master_AcceptType
+鈥?Master_Thread
+鈥?BeTrade_UpperLimit
+鈥?BeTrade_Thread
+鈥?Proxy_Type
+鈥?Proxy_Clash
+鈥?Proxy_Customize_*
+鈥?Login_IsRemember
+鈥?Login_Username
+鈥?Login_Password
+
+缁撹
+
+Setting.json 灏辨槸浣犲悗闈㈡渶濂芥敼銆佹渶濂芥帴绠＄殑閰嶇疆闈€?
+濡傛灉浣犳兂淇敼锛?
+鈥?榛樿绾跨▼
+鈥?榛樿妯″紡
+鈥?榛樿涓婇檺
+鈥?榛樿浠ｇ悊
+鈥?榛樿鐧诲綍璁板繂
+鈥?榛樿鐗╁搧绫诲瀷
+
+閮藉彲浠ヤ紭鍏堜粠 Setting 绫讳笅鎵嬨€?
+鈹€鈹€鈹€
+
+4. 杩欎釜鈥滃厤璐圭増鈥濆叾瀹炴湁鐧诲綍绯荤粺
+
+鐧诲綍绐椾綋绫伙細
+
+鈥?SteamInventoryManager.Form.LoginForm
+
+閲岄潰宸茬粡纭鏈夛細
+
+鈥?鐢ㄦ埛鍚嶈緭鍏?鈥?瀵嗙爜杈撳叆
+鈥?璁颁綇瀵嗙爜
+鈥?鏈湴 AES-CBC 鍔犲瘑淇濆瓨
+鈥?鐧诲綍璋冪敤锛?
+AccountAction.Login(text, text2)
+
+杩欐剰鍛崇潃
+
+杩欎釜绋嬪簭铏界劧鍙厤璐圭増锛屼絾瀹冨唴閮ㄧ‘瀹炲甫浜嗚处鍙风櫥褰?鎺堟潈浣撶郴銆?
+鑰屼笖瀹冧細锛?
+鈥?鎶婅浣忕殑鐢ㄦ埛鍚嶅瘑鐮佸啓杩?Setting.Instance
+鈥?鐢?AES-CBC 鍔犲瘑鍚庝繚瀛?鈥?鐧诲綍鍚庤繑鍥烇細
+鈥?鏄惁鎴愬姛
+鈥?鐢ㄦ埛鍚?鈥?瀵嗙爜
+鈥?鍒版湡鏃堕棿 / 姘镐箙鏍囪
+
+寰堥噸瑕?
+杩欒鏄庡鏋滀綘鍚庨潰瑕佹敼鍐呭锛岀櫥褰曠浉鍏抽€昏緫涓昏涓嶅湪涓荤獥浣撻噷锛岃€屽湪锛?
+鈥?LoginForm
+鈥?AccountAction
+
+鈹€鈹€鈹€
+
+5. 璐﹀彿瀵煎叆鍜?maFile 鍖归厤閫昏緫
+
+璐﹀彿瀵煎叆绐椾綋绫伙細
+
+鈥?OutlookUpdateEmail.LoadAccount
+
+杩欏悕瀛楁湁鐐硅糠鎯戯紝浣嗗畠瀹為檯灏辨槸瀵煎叆璐﹀彿绐楀彛銆?
+宸茬‘璁ゅ姛鑳?
+瀹冩敮鎸佷袱绉嶆潵婧愶細
+
+1. 浠庢枃浠跺鍏?2. 浠庡壀璐存澘瀵煎叆
+
+骞朵笖浼氳浣忥細
+
+鈥?Setting.Instance.AccountDir
+鈥?Setting.Instance.AccountFileName
+鈥?Setting.Instance.MafileDir
+
+maFile 鍏宠仈鏂瑰紡
+
+瀹冮€変竴涓?maFiles 鏂囦欢澶瑰悗锛屼細鎸夎繖涓鍒欏尮閰嶏細
+
+璐﹀彿鍚?+ ".maFile"
+
+涔熷氨鏄锛?
+濡傛灉璐﹀彿鏄細
+
+鈥?abc123
+
+瀹冨氨鎵撅細
+
+鈥?abc123.maFile
+
+鍖归厤鎴愬姛鍚庡啓鍏ワ細
+
+鈥?account.MafilesPath
+
+鍖归厤澶辫触浼氭爣璁扮姸鎬併€?
+杩欑偣闈炲父瀹炵敤
+
+杩欐剰鍛崇潃浣犲鏋滀互鍚庡姞锛?
+鈥?鑷姩澶囦唤 maFiles
+鈥?鑷姩涓婁紶 maFiles
+鈥?鑷姩妫€鏌ョ己澶?maFiles
+
+鏈€浣虫彃鍏ョ偣涔嬩竴灏辨槸 LoadAccount銆?
+鈹€鈹€鈹€
+
+6. 杞簱瀛樻牳蹇冨姩浣滅被宸茬粡鎵惧埌
+
+鏈€鍏抽敭鐨勪氦鏄撳姩浣滅被锛?
+鈥?SteamInventoryManager.Actions.TradeOfferAction
+
+杩欎釜绫诲凡缁忎笉鏄€滅寽娴嬧€濓紝鑰屾槸鏄庣‘鐪嬪埌浜嗘柟娉曪細
+
+鈥?GetTradeOffers(...)
+鈥?SendTradeOffer(...)
+鈥?CancelTradeOffer(...)
+鈥?鎺ュ彈鎶ヤ环鐨勬柟娉曪紙鍐呴儴娣锋穯鍚嶏級
+鈥?鍏朵粬浜ゆ槗鎿嶄綔鏂规硶
+
+SendTradeOffer() 宸茬‘璁ょ壒寰?
+瀹冪殑绛惧悕寰堟竻鏅帮細
+
+鈥?steamId
+鈥?itemsToGive
+鈥?itemsToReceive
+鈥?token
+鈥?customMessage
+鈥?forcedSingleOffer
+鈥?itemsPerTrade = 255
+
+骞朵笖閲岄潰鏄庣‘鏈夐€昏緫锛?
+鈥?榛樿姣忓崟鏈€澶?255 椤?鈥?鏈€澶氭媶 5 鍗?鈥?瓒呰繃涓婇檺灏变笉缁х画鍔?鈥?浣跨敤 Steam Web 璇锋眰鍙戦€?trade offer
+
+杩欏拰浣犲墠闈㈢爺绌跺嚭鏉ョ殑閫昏緫楂樺害涓€鑷淬€?
+鈹€鈹€鈹€
+
+7. 璐﹀彿妯″瀷涔熺‘璁や簡
+
+璐﹀彿绫伙細
+
+鈥?SteamInventoryManager.Model.Account
+
+瀹冮噷闈㈠凡缁忕洿鎺ユ湁杩欎簺瀛楁/灞炴€э細
+
+鈥?account_name
+鈥?account_password
+鈥?MafilesName
+鈥?MafilesPath
+鈥?identity_secret
+鈥?shared_secret
+鈥?Session
+鈥?TradeOfferUrl
+鈥?TradeToken
+鈥?SteamID
+鈥?User
+鈥?Inventory
+鈥?SentTradeIDs
+鈥?BeTrad
+
+
+===== 文本_41---57414de2-ebad-48b6-966b-65584a41609e.txt =====
+xkgxjgxutsit, [2026骞?鏈?0鏃?05:33]
+eO
+
+
+===== 文本_42---35819159-d863-4956-aaee-a854d971f9b1.txt =====
+xkgxjgxutsit, [2026骞?鏈?0鏃?05:33]
+fferI
+
+
+===== 文本_43---2f9497b2-6be0-41ca-b884-d4b68e24cfbc.txt =====
+xkgxjgxutsit, [2026骞?鏈?0鏃?05:34]
+Ds
+
+杩欒鏄?
+杩欎釜绋嬪簭鍐呴儴涓嶆槸鈥?
+
+===== 文本_44---780bb035-2700-4de0-831a-013d8103934a.txt =====
+xkgxjgxutsit, [2026骞?鏈?0鏃?05:34]
+鍙澶栭儴鏂囨湰鏂囦欢鈥濓紝鑰屾槸宸茬粡鎶婅处鍙枫€乵aFile銆丼ession銆乀radeToken 缁熶竴鎶借薄鎴愪簡 Account 瀵硅薄銆?
+涔熷氨鏄锛屽鏋滀綘鍚庨潰瑕佸姞锛?
+鈥?鑷姩澶囦唤
+鈥?鑷姩涓婁紶
+鈥?鑷姩淇?
+
+===== 文本_45---805686f6-f839-4a63-aa03-156eca3997d3.txt =====
+xkgxjgxutsit, [2026骞?鏈?0鏃?05:34]
+鏀?token / trade url
+鈥?瀵煎嚭璐﹀彿鐘舵€?
+鏈€閫傚悎鏀圭殑绫诲氨鏄細
+
+SteamInventoryManager.Model.Account
+
+鈹€鈹€鈹€
+
+8. 鐜板湪鏈€鍊煎緱鏀圭殑妯″潡
+
+濡傛灉浣犵殑鐩爣鏄€滀慨鏀逛竴浜涢噷闈㈢殑鍐呭鈥濓紝鎸変紭鍏堢骇鎴戝缓璁湅杩欏嚑鍧楋細
+
+绗竴灞傦細鏈€瀹规槗鍔?
+1. SteamInventoryManager.Model.Setting
+2. SteamAutoLogin.TransferInventoryForm
+3. OutlookUpdateEmail.LoadAccount
+
+閫傚悎鏀癸細
+
+鈥?鐣岄潰鏂囨
+鈥?榛樿閰嶇疆
+鈥?瀵煎叆閫昏緫
+鈥?maFile 鐩綍閫昏緫
+鈥?澶囦唤閫昏緫
+鈥?鏂囦欢璺緞閫昏緫
+
+绗簩灞傦細鏍稿績涓氬姟
+
+4. SteamInventoryManager.Model.DataController
+5. SteamInventoryManager.Actions.TradeOfferAction
+6. SteamInventoryManager.Model.SteamGuardController
+7. SteamInventoryManager.Model.UserController
+
+閫傚悎鏀癸細
+
+鈥?杞Щ娴佺▼
+鈥?鎺ュ彈/纭娴佺▼
+鈥?Steam 閫氫俊鏂瑰紡
+鈥?骞跺彂琛屼负
+鈥?涓婁紶澶囦唤鏃舵満
+
+绗笁灞傦細璐﹀彿绯荤粺/鐧诲綍绯荤粺
+
+8. SteamInventoryManager.Form.LoginForm
+9. SteamInventoryManager.Actions.AccountAction
+
+閫傚悎鏀癸細
+
+鈥?鐧诲綍鐣岄潰
+鈥?鐧诲綍鍚庣殑鐘舵€佹樉绀?鈥?鏈湴璁板繂瀵嗙爜鏂瑰紡
+鈥?鎺ヤ綘鑷繁鐨勬湇鍔″櫒
+
+鈹€鈹€鈹€
+
+9. 鐜板湪鍙互纭鐨勪竴浠朵簨
+
+杩欎釜绋嬪簭涓嶆槸閭ｇ鈥滃彧鑳借ˉ涓佹敼瀛楃涓测€濈殑榛戠洅浜嗐€?瀹冨凡缁忚繘鍏ヨ繖涓樁娈碉細
+
+鍙互鍥寸粫 SteamInventoryManager.dll 鍋氱湡瀹炵殑 C# 绾т慨鏀?
+铏界劧鏈夋贩娣嗭紙鏂规硶鍚嶅緢澶氬彉鎴愪簡涓嶅彲璇诲瓧绗︼級锛?浣嗭細
+
+鈥?绫诲悕
+鈥?妯″潡杈圭晫
+鈥?灞炴€у悕
+鈥?澶ч儴鍒嗕笟鍔￠鏋?
+閮藉凡缁忓嚭鏉ヤ簡銆?
+鈹€鈹€鈹€
+
+鎴戝缓璁笅涓€姝?
+鐜板湪鏈€鍊奸挶鐨勬槸浜岄€変竴锛?
+A. 缁х画娣辨寲 DataController
+
+鐪嬪畠鍒板簳鎬庝箞缂栨帓锛?
+鈥?涓诲簱鍙?鈥?寰呰浆鍙?鈥?鍙戞姤浠?鈥?鎺ュ彈
+鈥?纭
+鈥?绾跨▼璋冨害
+
+B. 缁х画娣辨寲 AccountAction
+
+鐪嬭繖涓▼搴忚嚜宸辩殑鐧诲綍绯荤粺鍦ㄨ姹傚摢涓湇鍔″櫒銆佸彂浠€涔堝弬鏁?
+鈹€鈹€鈹€
+
+
+===== 文本_46---91bddd0b-ae96-4712-be7a-35b89e638917.txt =====
+xkgxjgxutsit, [2026骞?鏈?0鏃?05:34]
+鎴戠殑寤鸿
+
+濡傛灉浣犵洰鐨勬槸鍚庨潰瑕佲€滄敼閲岄潰鍐呭鈥濓紝鎴戝缓璁厛璧帮細
+
+A锛氭繁鎸?DataController
+
+鍥犱负閭ｆ槸鏍稿績娴佺▼鎬绘帶銆?鍙鎶婂畠鎽告竻妤氾紝浣犲悗闈㈡棤璁烘槸锛?
+鈥?鍔犺嚜鍔ㄥ浠?鈥?鍔犱笂浼犳湇鍔″櫒
+鈥?鏀硅浆绉绘祦绋?鈥?鏀?UI 鎸夐挳琛屼负
+
+閮戒細椤哄緢澶氥€?
+濡傛灉浣犲悓鎰忥紝鎴戜笅涓€姝ュ氨缁х画鎷?DataController銆?
+
+===== 文本_47---ba55f181-2f32-493b-85ad-547db44826cf.txt =====
+xkgxjgxutsit, [2026骞?鏈?0鏃?05:34]
+鎴戠户缁媶 DataController锛屾妸鈥滀富搴撳彿 / 寰呰浆鍙?/ 鍙戞姤浠?/ 鎺ュ彈 / 纭鈥濈殑鎬昏皟搴﹂摼璺悊鍑烘潵銆?
+
+===== 文本_48---268c9405-7161-4853-ade3-dcdd1e2689d4.txt =====
+xkgxjgxutsit, [2026骞?鏈?0鏃?05:35]
+鎴戝凡缁忔妸 鏍稿績璋冨害閾?鎷嗗嚭鏉ヤ簡锛岀幇鍦ㄤ笉鏄寽锛屾槸鑳芥寜娴佺▼璇存竻妤氥€?
+鈹€鈹€鈹€
+
+鐜板湪纭鐨勪富娴佺▼
+
+鐪熸鎬绘帶鍦細
+
+鈥?SteamInventoryManager.Model.DataController
+
+瀹冮噷闈㈡湁 4 缁勬牳蹇冭兘鍔涳細
+
+1. 鍒锋柊璐﹀彿鐘舵€?/ 鎷夊簱瀛?
+鏂规硶鏃忥細
+
+鈥?DataController(List<Account>, List<uint>, int, Action<Account>, CancellationToken)
+
+浣滅敤锛?
+鈥?鐧诲綍璐﹀彿
+鈥?鑾峰彇 TradeToken
+鈥?鐢熸垚 TradeOfferUrl
+鈥?鎷夊彇褰撳墠鎶ヤ环鍒楄〃
+鈥?鎷夊彇搴撳瓨
+鈥?缁熻锛?鈥?鎬诲簱瀛?鈥?鍙氦鏄撴暟閲?鈥?鍐峰嵈鏁伴噺
+
+鈹€鈹€鈹€
+
+2. 涓诲簱鍙凤細鎺ュ彈鎶ヤ环
+
+鏂规硶鏃忥細
+
+鈥?DataController(List<Account>, int, Action<Account>, int acceptType, CancellationToken)
+
+浣滅敤锛?
+鈥?鐧诲綍涓诲簱鍙?鈥?璇诲彇 BeTradeOffers
+鈥?寰幆鎺ュ彈鎶ヤ环
+鈥?濡傛灉闇€瑕佹墜鏈虹‘璁わ細
+鈥?璋?HandleTwoFactorAuthenticationConfirmations(accept: true)
+
+缁撹
+
+涓诲簱鍙风殑纭閾剧湡鐨勫凡缁忓湪绋嬪簭閲屼簡锛岃€屼笖鏄爣鍑嗭細
+
+鈥?鎺ユ姤浠?鈥?濡傞渶纭锛屽啀璧?2FA confirmation
+
+鈹€鈹€鈹€
+
+3. 寰呰浆鍙凤細鎾ゅ洖宸插彂鎶ヤ环
+
+鏂规硶鏃忥細
+
+鈥?DataController(List<Account>, int, Action<Account>, CancellationToken)
+
+浣滅敤锛?
+鈥?鐧诲綍寰呰浆鍙?鈥?鎷?SentTradeOffers
+鈥?鎵归噺鍙栨秷鎶ヤ环
+
+鈹€鈹€鈹€
+
+4. 瀹屾暣鈥滆浆搴撳瓨鈥濇€绘祦绋?
+鏈€閲嶈鐨勬柟娉曪細
+
+鈥?DataController(List<Account> masters, int masterUpperLimit, List<Account> beTrades, int beTradeUpperLimit, int itemType, List<string> filters, int transferType, int threads, Action<Account> updateUI, CancellationToken token, List<uint> appIds = null)
+
+杩欎釜灏辨槸绋嬪簭鐪熸鐨勨€滃紑濮嬭浆绉烩€濄€?
+鈹€鈹€鈹€
+
+瀹屾暣鎵ц閾?
+绗竴姝ワ細鍏堟妸寰呰浆鍙锋壒閲忕櫥褰?
+鈥?瀵?P_2 = BeTrade璐﹀彿鍒楄〃 骞跺彂鐧诲綍
+鈥?姣忎釜璐﹀彿鏈€澶氶噸璇?3 娆?鈥?鎸囨暟閫€閬?鈥?鐧诲綍鎴愬姛鍚庯紝鏀捐繘涓€涓?BlockingCollection<LoginedBeTrade>
+
+杩欎釜 LoginedBeTrade 閲屼繚瀛樹簡锛?
+鈥?Account
+鈥?User
+鈥?鐧诲綍鏃堕棿
+鈥?涓€浜涚姸鎬佸瓧娈?
+鈹€鈹€鈹€
+
+绗簩姝ワ細姣忎釜寰呰浆鍙峰紑濮嬪彂璐?
+瀵规瘡涓凡鐧诲綍寰呰浆鍙凤細
+
+1. 鎷夊畠鐨勫簱瀛?2. 鎸夐厤缃瓫閫夌墿鍝?3. 濡傛灉瓒呰繃寰呰浆涓婇檺 BeTrade_UpperLimit锛屽氨鎴柇
+4. 鎸変富搴撳彿鍓╀綑鎺ユ敹棰濆害鍒嗛厤
+5. 璋冿細
+
+user.ArchiWebHandler.SendInventory(...)
+
+娉ㄦ剰杩欓噷涓嶆槸鐩存帴璋?TradeOfferAction.SendTradeOffer()锛?鑰屾槸鏇撮珮灞傜殑锛?
+ArchiWebHandler.SendInventory()
+
+杩欐洿鎺ヨ繎 ASF 椋庢牸灏佽銆?
+鈹€鈹€鈹€
+
+绗笁姝ワ細寰呰浆鍙?-> 涓诲簱鍙?鍙戞姤浠?
+鍒嗛厤閫昏緫宸茬粡鐪嬫竻妤氫簡锛?
+鈥?閬嶅巻涓诲簱鍙峰垪琛?鈥?璺宠繃锛?鈥?宸叉弧鐨勪富搴撳彿
+鈥?鑷繁缁欒嚜宸卞彂鐨勬儏鍐?鈥?璁＄畻鏈缁欒繖涓富搴撳彿鍙戝灏戜欢锛?鈥?min(褰撳墠鍓╀綑鐗╁搧鏁? 涓诲簱鍙峰墿浣欓搴?
+鈥?鍙戣揣鍚庯細
+鈥?current.BeTradeOfferIDs.Add(offerId) 璁板埌涓诲簱鍙?鈥?account.SentTradeIDs.Add(offerId) 璁板埌寰呰浆鍙?
+涔熷氨鏄锛?
+鈥?涓诲簱鍙疯鏀跺埌鐨勬姤浠?ID
+鈥?寰呰浆鍙疯鍙戝嚭鐨勬姤浠?ID
+
+鈹€鈹€鈹€
+
+绗洓姝ワ細鏄惁杈瑰彂杈规敹
+
+杩欓噷浣犱箣鍓嶅叧蹇冪殑鈥滆浆绉绘ā寮忊€濆凡缁忔槑纭簡锛?
+Transfer_Type == 0
+
+琛ㄧず锛?
+杈瑰彂璧疯竟鎺ュ彈
+
+浠ｇ爜閲屽湪鍙戣揣鎴愬姛鍚庯紝绔嬪嵆鍒ゆ柇涓诲簱鍙锋槸鍚﹀湪绾匡細
+
+if (P_6 == 0 && current.User != null && current.User.IsConnectedAndLoggedOn)
+
+婊¤冻鐨勮瘽锛屽氨椹笂瀵瑰垰鍙戝嚭鐨?offerId 鎵ц鎺ュ彈銆?
+鈹€鈹€鈹€
+
+Transfer_Type == 1
+
+琛ㄧず锛?
+鍏ㄩ儴鍙戣捣鍚庯紝鍐嶇粺涓€鎺ュ彈
+
+浠ｇ爜閲屽湪鏁磋疆鍙戣揣缁撴潫鍚庯紝浼氳繘鍏ヤ竴涓崟鐙殑涓诲簱鍙锋帴鍙楅樁娈碉細
+
+鈥?閬嶅巻涓诲簱鍙?鈥?璇诲彇 BeTradeOfferIDs
+鈥?鎵归噺鎺ュ彈
+
+杩欏拰浣犱箣鍓嶇湅鍒扮殑 UI 閫昏緫瀹屽叏瀵逛笂浜嗐€?
+鈹€鈹€鈹€
+
+宸茬‘璁ょ殑閲嶈缁嗚妭
+
+1. 鍗曟浜ゆ槗涓婇檺
+
+璋冪敤鍙戣揣鏃跺浐瀹氫紶浜嗭細
+
+鈥?255
+
+涔熷氨鏄崟涓?trade offer 鏈€澶?255 椤广€?
+鈹€鈹€鈹€
+
+2. 榛樿搴撳瓨涓婁笅鏂?
+鎷夊簱瀛樻椂锛?
+鈥?753 璧?contextid = 6
+鈥?鍏朵粬 appid 璧帮細
+鈥?contextid = 2
+鈥?contextid = 16
+
+璇存槑杩欑▼搴忎笉鏄彧鍋?CS2锛岃繕鍏煎 Steam 绀惧尯搴撳瓨绛夈€?
+鈹€鈹€鈹€
+
+3. 鐗╁搧绛涢€夐€昏緫
+
+绛涢€夊湪杩欎釜鏂规硶閲岋細
+
+鈥?DataController(List<Asset>, int itemType, List<string> filters)
+
+itemType == 0
+
+鎸夌被鍨嬬瓫閫夛細
+
+鈥?姝﹀櫒绠?鈥?鏀惰棌鍝?鈥?姝﹀櫒
+鈥?娑傞甫
+鈥?鍏跺畠
+
+itemType == 1
+
+鎸夊悕绉扮簿纭瓫閫?
+鈹€鈹€鈹€
+
+4. 鐧诲綍鏂瑰紡
+
+鐪熸鐧诲綍鍦細
+
+鈥?UserController
+
+閫昏緫鏄細
+
+鈥?濡傛灉宸叉湁缂撳瓨涓殑 User 涓斿湪绾匡紝灏卞鐢?鈥?鍚﹀垯锛?鈥?鏈?MafilesPath 灏辫蛋 maFile 鐧诲綍
+鈥?鍚﹀垯闇€瑕?twoFactorCode
+
+涔熷氨鏄锛?
+杩欎釜绋嬪簭涓昏矾寰勫氨鏄?maFile 椹卞姩鐧诲綍锛屼笉鏄瘡娆＄函璐﹀彿瀵嗙爜纭櫥銆?
+鈹€鈹€鈹€
+
+5. maFile 楠岃瘉鐮侀€昏緫
+
+SteamGuardController 宸茬‘璁わ細
+
+鈥?鐩存帴璇?account.MafilesPath
+鈥?鍙嶅簭鍒楀寲鎴?SteamGuardAccount
+鈥?鐢?GenerateSteamGuardCodeForTime() 鐢熸垚楠岃瘉鐮?
+杩欒鏄庯細
+
+鈥?maFile 鏄竴绛夊叕姘?鈥?涓嶆槸闄勫睘琛ヤ竵鍔熻兘
+
+鈹€鈹€鈹€
+
+鐜板湪鏈€鍊煎緱鏀圭殑鍦版柟
+
+濡傛灉浣犳兂鈥滀慨鏀归噷闈㈠唴瀹光€濓紝鎸変环鍊兼帓搴忥細
+
+绗竴浼樺厛绾?
+DataController
+
+閫傚悎鏀癸細
+
+鈥?鍙戣揣鍒嗛厤绛栫暐
+鈥?鎺ュ彈鏃舵満
+鈥?绾跨▼閫昏緫
+鈥?涓婇檺閫昏緫
+鈥?杩囨护閫昏緫
+鈥?鏄惁涓婁紶/澶囦唤
+
+鈹€鈹€鈹€
+
+绗簩浼樺厛绾?
+UserController
+
+閫傚悎鏀癸細
+
+鈥?鐧诲綍鏂瑰紡
+鈥?鐧诲綍閲嶈瘯
+鈥?浠ｇ悊鍒囨崲
+鈥?澶嶇敤浼氳瘽绛栫暐
+
+鈹€鈹€鈹€
+
+绗笁浼樺厛绾?
+LoginForm
+
+閫傚悎鏀癸細
+
+鈥?鐧诲綍鏍￠獙
+鈥?鏈湴璁颁綇瀵嗙爜閫昏緫
+鈥?鏇挎崲鍘熺櫥褰曠郴缁?
+鈹€鈹€鈹€
+
+绗洓浼樺厛绾?
+LoadAccount
+
+閫傚悎鏀癸細
+
+鈥?瀵煎叆鏍煎紡
+鈥?maFile 鑷姩鍖归厤
+鈥?鑷姩澶囦唤
+鈥?鑷姩涓婁紶
+
+鈹€鈹€鈹€
+
+鐜板湪鐨勪竴涓叧閿垽鏂?
+杩欎釜鍏嶈垂鐗堢殑鐪熷疄鏋舵瀯澶ф鏄細
+
+鈥?TransferInventoryForm锛氫富鐣岄潰璋冨害
+鈥?Setting锛氭湰鍦伴厤缃?鈥?LoadAccount锛氬鍏ヨ处鍙?/ maFile
+鈥?UserController锛氱櫥褰?鈥?SteamGuardController锛?FA / maFile code
+鈥?DataController锛氭牳蹇冩祦绋嬬紪鎺?鈥?ArchiWebHandler.SendInventory()锛氱湡姝ｅ彂鎶ヤ环
+鈥?HandleTwoFactorAuthenticationConfirmations()锛氱‘璁?
+鎵€浠ヤ綘瑕佹敼鍐呭锛屽凡缁忓彲浠ユ寜妯″潡鍔ㄥ垁浜嗐€?
+鈹€鈹€鈹€
+
+鎴戝缓璁笅涓€姝?
+鐜板湪鏈€鍊奸挶鐨勭户缁柟鍚戞湁涓や釜锛?
+A. 娣辨寲 AccountAction
+
+鎶婂畠鐨勨€滅櫥褰曟湇鍔″櫒 / API 鍦板潃 / 鏍￠獙閫昏緫鈥濇媶鍑烘潵
+閫傚悎浣犳兂鏀圭櫥褰曘€佹敼浼氬憳銆佸幓鎺夊師鎺堟潈
+
+B. 娣辨寲 ArchiWebHandler / SendInventory
+
+鎶婄湡姝ｅ彂鎶ヤ环銆佹帴鎶ヤ环銆佺‘璁ょ殑搴曞眰 HTTP 璺緞缁х画鎷嗗嚭鏉?閫傚悎浣犳兂鏀硅浆搴撳瓨鏍稿績琛屼负
+
+鈹€鈹€鈹€
+
+鎴戠殑寤鸿
+
+濡傛灉浣犵殑鐩爣鏄悗闈㈣嚜宸辨敼杩欎釜绋嬪簭锛屼紭鍏堣蛋 A锛?
+涓嬩竴姝ユ媶 AccountAction
+
+鍥犱负鐧诲綍/鎺堟潈涓€鑸槸浣犳渶鍏堣纰扮殑閮ㄥ垎銆?
+浣犲洖涓€鍙ワ細
+
+鎷?AccountAction
+
+鎴戝氨缁х画銆?
+
+===== 文本---e2b59f1b-c3e0-4d65-b90c-7c4fa30a7a22.txt =====
+xkgxjgxutsit, [2026骞?鏈?0鏃?05:15]
+鎴戝厛鐩存帴璇嗗埆 Steam杞簱瀛榁1.0.exe 鐨勬妧鏈爤锛氱湅瀹冩槸涓嶆槸 .NET銆丳yInstaller銆乁PX锛岃繕鏄師鐢?鏄撹瑷€銆?
+
