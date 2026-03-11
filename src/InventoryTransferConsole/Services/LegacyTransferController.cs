@@ -19,11 +19,13 @@ public sealed class LegacyTransferController : ITransferController
         ILegacyAccountImportPort? accountImportPort = null,
         ILegacyMaFileBindingPort? maFileBindingPort = null,
         ILegacyTransferExecutionPort? transferExecutionPort = null,
-        ITransferController? fallback = null)
+        ITransferController? fallback = null,
+        LegacyPortContext? context = null)
     {
-        this.accountImportPort = accountImportPort ?? new NullLegacyAccountImportPort();
-        this.maFileBindingPort = maFileBindingPort ?? new NullLegacyMaFileBindingPort();
-        this.transferExecutionPort = transferExecutionPort ?? new NullLegacyTransferExecutionPort();
+        context ??= LegacyPortContext.Empty();
+        this.accountImportPort = accountImportPort ?? new LegacyLoadAccountPortTemplate(context);
+        this.maFileBindingPort = maFileBindingPort ?? new LegacyMaFileBindingPortTemplate(context);
+        this.transferExecutionPort = transferExecutionPort ?? new LegacyTransferExecutionPortTemplate(context);
         this.fallback = fallback ?? new MockTransferController();
         currentSnapshot = this.fallback.LoadSnapshot();
     }
