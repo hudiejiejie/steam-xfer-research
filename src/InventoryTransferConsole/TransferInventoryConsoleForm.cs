@@ -1,3 +1,4 @@
+using InventoryTransferConsole.Forms;
 using InventoryTransferConsole.Models;
 using InventoryTransferConsole.Services;
 
@@ -30,20 +31,38 @@ public partial class TransferInventoryConsoleForm : Form, ILogSink
         LoadDashboard();
         LoadSettingsIntoUi();
         BindEvents();
+        UpdateActionState(false);
         Info($"Console shell loaded. Settings: {settingsService.SettingsPath}");
     }
 
     private void LoadDashboard()
     {
         snapshot = controller.LoadSnapshot();
+        RenderSnapshot();
+    }
+
+    private void RenderSnapshot()
+    {
         SeedTables(snapshot);
         lblMasterSummary.Text = $"Masters: {snapshot.Masters.Count}";
         lblBeTradeSummary.Text = $"Workers: {snapshot.Workers.Count}";
         lblRunState.Text = $"State: {snapshot.RunState}";
-        if (snapshot.Workers.Count > 0)
+        lblModeSummary.Text = $"Mode: {snapshot.ModeSummary}";
+
+        if (snapshot.Workers.Count > 0 && dgvBeTrade.Rows.Count > 0)
         {
             dgvBeTrade.Rows[0].Selected = true;
             SyncWorkerDetails(snapshot.Workers[0]);
+        }
+        else if (snapshot.Masters.Count > 0 && dgvMaster.Rows.Count > 0)
+        {
+            dgvMaster.Rows[0].Selected = true;
+            lblSelectedAccountValue.Text = snapshot.Masters[0].Account;
+            lblSelectedSteamIdValue.Text = snapshot.Masters[0].SteamId;
+            lblSelectedMaFileValue.Text = snapshot.Masters[0].MaFile;
+            lblSelectedOfferValue.Text = "-";
+            lblSelectedErrorValue.Text = "None";
+            lblSelectedInventoryValue.Text = "N/A";
         }
     }
 
@@ -66,28 +85,45 @@ public partial class TransferInventoryConsoleForm : Form, ILogSink
         txtItemFilter.Text = appSettings.Runtime.ItemFilterValue;
 
         lblThreadSummary.Text = $"Threads: {numThreadCount.Value}";
-        lblModeSummary.Text = $"Mode: {cmbTransferType.Text}";
+        if (cmbTransferType.SelectedIndex >= 0)
+            lblModeSummary.Text = $"Mode: {cmbTransferType.Text}";
         suppressSettingsEvents = false;
     }
 
     private static int ClampIndex(int index, int count)
     {
         if (count <= 0) return -1;
-        if (index < 0) return 0;
-        if (index >= count) return 0;
+        if (index < 0 || index >= count) return 0;
         return index;
+    }
+
+    private RuntimeSettings ReadRuntimeSettings()
+    {
+        return new RuntimeSettings
+        {
+            ThreadCount = (int)numThreadCount.Value,
+            TransferTypeIndex = cmbTransferType.SelectedIndex,
+            AcceptModeIndex = cmbAcceptMode.SelectedIndex,
+            ItemTypeIndex = cmbItemType.SelectedIndex,
+            ItemFilterValue = txtItemFilter.Text.Trim()
+        };
     }
 
     private void SaveSettingsFromUi()
     {
         if (suppressSettingsEvents) return;
-
-        appSettings.Runtime.ThreadCount = (int)numThreadCount.Value;
-        appSettings.Runtime.TransferTypeIndex = cmbTransferType.SelectedIndex;
-        appSettings.Runtime.AcceptModeIndex = cmbAcceptMode.SelectedIndex;
-        appSettings.Runtime.ItemTypeIndex = cmbItemType.SelectedIndex;
-        appSettings.Runtime.ItemFilterValue = txtItemFilter.Text.Trim();
+        appSettings.Runtime = ReadRuntimeSettings();
         settingsService.Save(appSettings);
+    }
+
+    private void UpdateActionState(bool isRunning)
+    {
+        btnStart.Enabled = !isRunning;
+        btnStop.Enabled = isRunning;
+        btnImportAccounts.Enabled = !isRunning;
+        btnImportMaFiles.Enabled = !isRunning;
+        btnExport.Enabled = !isRunning;
+        btnViewInventory.Enabled = !isRunning;
     }
 
     private void ApplyTheme()
@@ -236,22 +272,34 @@ public partial class TransferInventoryConsoleForm : Form, ILogSink
 
     private void BindEvents()
     {
-        btnImportAccounts.Click += (_, _) => controller.ImportAccounts(this);
-        btnImportMaFiles.Click += (_, _) => controller.ImportMaFiles(this);
+        btnImportAccounts.Click += (_, _) =>
+        {
+            using var dialog = new ImportAccountsDialog();
+            if (dialog.ShowDialog(this) != DialogResult.OK) return;
+            snapshot = controller.ImportAccounts(dialog.Result, this);
+            RenderSnapshot();
+        };
+        btnImportMaFiles.Click += (_, _) =>
+        {
+            snapshot = controller.ImportMaFiles(this);
+            RenderSnapshot();
+        };
         btnViewInventory.Click += (_, _) => controller.ViewInventory(this);
         btnExport.Click += (_, _) => controller.ExportResults(this);
         btnStart.Click += (_, _) =>
         {
             SaveSettingsFromUi();
-            lblRunState.Text = "State: Running";
+            snapshot = controller.StartTransfer(ReadRuntimeSettings(), this);
+            RenderSnapshot();
             lblRunState.ForeColor = Success;
-            controller.StartTransfer(this);
+            UpdateActionState(true);
         };
         btnStop.Click += (_, _) =>
         {
-            lblRunState.Text = "State: Stopping";
+            snapshot = controller.StopTransfer(this);
+            RenderSnapshot();
             lblRunState.ForeColor = Warning;
-            controller.StopTransfer(this);
+            UpdateActionState(false);
         };
         btnClearLog.Click += (_, _) => txtLog.Clear();
         chkAutoScroll.Checked = true;

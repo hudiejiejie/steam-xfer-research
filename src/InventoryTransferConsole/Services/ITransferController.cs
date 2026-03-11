@@ -5,10 +5,10 @@ namespace InventoryTransferConsole.Services;
 public interface ITransferController
 {
     DashboardSnapshot LoadSnapshot();
-    void StartTransfer(ILogSink logSink);
-    void StopTransfer(ILogSink logSink);
-    void ImportAccounts(ILogSink logSink);
-    void ImportMaFiles(ILogSink logSink);
+    DashboardSnapshot StartTransfer(RuntimeSettings settings, ILogSink logSink);
+    DashboardSnapshot StopTransfer(ILogSink logSink);
+    DashboardSnapshot ImportAccounts(ImportAccountsResult importResult, ILogSink logSink);
+    DashboardSnapshot ImportMaFiles(ILogSink logSink);
     void ViewInventory(ILogSink logSink);
     void ExportResults(ILogSink logSink);
 }
