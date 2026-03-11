@@ -109,6 +109,16 @@ public partial class TransferInventoryConsoleForm : Form, ILogSink
         };
     }
 
+    private TransferConfig ReadTransferConfig()
+    {
+        return new TransferConfig
+        {
+            Runtime = ReadRuntimeSettings(),
+            Masters = snapshot.Accounts.Where(x => x.IsMaster).ToList(),
+            Workers = snapshot.Accounts.Where(x => !x.IsMaster).ToList()
+        };
+    }
+
     private void SaveSettingsFromUi()
     {
         if (suppressSettingsEvents) return;
@@ -289,7 +299,7 @@ public partial class TransferInventoryConsoleForm : Form, ILogSink
         btnStart.Click += (_, _) =>
         {
             SaveSettingsFromUi();
-            snapshot = controller.StartTransfer(ReadRuntimeSettings(), this);
+            snapshot = controller.StartTransfer(ReadTransferConfig(), this);
             RenderSnapshot();
             lblRunState.ForeColor = Success;
             UpdateActionState(true);
