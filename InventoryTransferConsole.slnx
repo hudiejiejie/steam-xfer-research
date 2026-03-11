@@ -1,0 +1,5 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/InventoryTransferConsole/InventoryTransferConsole.csproj" />
+  </Folder>
+</Solution>

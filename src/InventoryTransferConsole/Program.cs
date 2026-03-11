@@ -1,4 +1,4 @@
-namespace SpiderXferShell;
+namespace InventoryTransferConsole;
 
 static class Program
 {
@@ -9,3 +9,4 @@ static class Program
         Application.Run(new TransferInventoryConsoleForm());
     }
 }
+

@@ -1,6 +1,9 @@
-namespace SpiderXferShell;
+using InventoryTransferConsole.Models;
+using InventoryTransferConsole.Services;
 
-public partial class TransferInventoryConsoleForm : Form
+namespace InventoryTransferConsole;
+
+public partial class TransferInventoryConsoleForm : Form, ILogSink
 {
     private readonly Color Bg = ColorTranslator.FromHtml("#0F1115");
     private readonly Color PanelBg = ColorTranslator.FromHtml("#171A21");
@@ -12,13 +15,34 @@ public partial class TransferInventoryConsoleForm : Form
     private readonly Color Warning = ColorTranslator.FromHtml("#F5A524");
     private readonly Color Danger = ColorTranslator.FromHtml("#FF5D5D");
 
+    private readonly ITransferController controller;
+    private DashboardSnapshot snapshot = new();
+
     public TransferInventoryConsoleForm()
     {
+        controller = new MockTransferController();
         InitializeComponent();
         ApplyTheme();
-        SeedTables();
+        LoadDashboard();
         BindEvents();
-        AppendLog("INFO", "Shell started.");
+        Info("Console shell loaded.");
+    }
+
+    private void LoadDashboard()
+    {
+        snapshot = controller.LoadSnapshot();
+        SeedTables(snapshot);
+        numThreadCount.Value = snapshot.ThreadCount;
+        lblThreadSummary.Text = $"Threads: {snapshot.ThreadCount}";
+        lblMasterSummary.Text = $"Masters: {snapshot.Masters.Count}";
+        lblBeTradeSummary.Text = $"Workers: {snapshot.Workers.Count}";
+        lblModeSummary.Text = $"Mode: {snapshot.ModeSummary}";
+        lblRunState.Text = $"State: {snapshot.RunState}";
+        if (snapshot.Workers.Count > 0)
+        {
+            dgvBeTrade.Rows[0].Selected = true;
+            SyncWorkerDetails(snapshot.Workers[0]);
+        }
     }
 
     private void ApplyTheme()
@@ -139,7 +163,7 @@ public partial class TransferInventoryConsoleForm : Form
         dgv.RowTemplate.Height = 30;
     }
 
-    private void SeedTables()
+    private void SeedTables(DashboardSnapshot data)
     {
         dgvMaster.Columns.Clear();
         dgvMaster.Columns.Add("Account", "Account");
@@ -149,8 +173,8 @@ public partial class TransferInventoryConsoleForm : Form
         dgvMaster.Columns.Add("Assigned", "Assigned");
         dgvMaster.Columns.Add("Limit", "Limit");
         dgvMaster.Columns.Add("MaFile", "maFile");
-        dgvMaster.Rows.Add("master_01", "7656119...001", "Online", "3", "87", "200", "Bound");
-        dgvMaster.Rows.Add("master_02", "7656119...002", "Offline", "0", "0", "200", "Missing");
+        foreach (var row in data.Masters)
+            dgvMaster.Rows.Add(row.Account, row.SteamId, row.LoginState, row.Pending, row.Assigned, row.Limit, row.MaFile);
 
         dgvBeTrade.Columns.Clear();
         dgvBeTrade.Columns.Add("Account", "Account");
@@ -161,47 +185,37 @@ public partial class TransferInventoryConsoleForm : Form
         dgvBeTrade.Columns.Add("Sent", "Sent");
         dgvBeTrade.Columns.Add("TaskState", "Task State");
         dgvBeTrade.Columns.Add("MaFile", "maFile");
-        dgvBeTrade.Rows.Add("worker_01", "Online", "154", "147", "7", "2", "Offer Sent", "Bound");
-        dgvBeTrade.Rows.Add("worker_02", "Online", "91", "88", "3", "0", "Inventory Ready", "Bound");
-        dgvBeTrade.Rows.Add("worker_03", "Failed", "0", "0", "0", "0", "Login Failed", "Missing");
+        foreach (var row in data.Workers)
+            dgvBeTrade.Rows.Add(row.Account, row.LoginState, row.Inventory, row.Tradable, row.Cooldown, row.Sent, row.TaskState, row.MaFile);
 
+        cmbTransferType.Items.Clear();
         cmbTransferType.Items.AddRange(new object[] { "Send+Accept", "Send All Then Accept" });
+        cmbAcceptMode.Items.Clear();
         cmbAcceptMode.Items.AddRange(new object[] { "Auto Accept", "Delayed Accept", "Manual Confirm" });
+        cmbItemType.Items.Clear();
         cmbItemType.Items.AddRange(new object[] { "Filter by Type", "Filter by Exact Name" });
         cmbTransferType.SelectedIndex = 0;
         cmbAcceptMode.SelectedIndex = 0;
         cmbItemType.SelectedIndex = 0;
-        numThreadCount.Value = 8;
-
-        lblThreadSummary.Text = "Threads: 8";
-        lblMasterSummary.Text = "Masters: 2";
-        lblBeTradeSummary.Text = "Workers: 3";
-        lblModeSummary.Text = "Mode: Send+Accept";
-        lblSelectedAccountValue.Text = "worker_01";
-        lblSelectedSteamIdValue.Text = "7656119...003";
-        lblSelectedMaFileValue.Text = "Bound";
-        lblSelectedOfferValue.Text = "#1039284";
-        lblSelectedErrorValue.Text = "None";
-        lblSelectedInventoryValue.Text = "154 total / 147 tradable / 7 cooldown";
     }
 
     private void BindEvents()
     {
-        btnImportAccounts.Click += (_, _) => AppendLog("INFO", "Import accounts clicked.");
-        btnImportMaFiles.Click += (_, _) => AppendLog("INFO", "Import maFiles clicked.");
-        btnViewInventory.Click += (_, _) => AppendLog("INFO", "View inventory clicked.");
-        btnExport.Click += (_, _) => AppendLog("INFO", "Export clicked.");
+        btnImportAccounts.Click += (_, _) => controller.ImportAccounts(this);
+        btnImportMaFiles.Click += (_, _) => controller.ImportMaFiles(this);
+        btnViewInventory.Click += (_, _) => controller.ViewInventory(this);
+        btnExport.Click += (_, _) => controller.ExportResults(this);
         btnStart.Click += (_, _) =>
         {
             lblRunState.Text = "State: Running";
             lblRunState.ForeColor = Success;
-            AppendLog("INFO", "Start transfer clicked.");
+            controller.StartTransfer(this);
         };
         btnStop.Click += (_, _) =>
         {
             lblRunState.Text = "State: Stopping";
             lblRunState.ForeColor = Warning;
-            AppendLog("WARN", "Stop transfer clicked.");
+            controller.StopTransfer(this);
         };
         btnClearLog.Click += (_, _) => txtLog.Clear();
         chkAutoScroll.Checked = true;
@@ -213,18 +227,41 @@ public partial class TransferInventoryConsoleForm : Form
 
     private void SyncSelectionDetails()
     {
-        var row = dgvBeTrade.CurrentRow ?? dgvMaster.CurrentRow;
-        if (row == null) return;
+        if (dgvBeTrade.CurrentRow is not null)
+        {
+            var account = dgvBeTrade.CurrentRow.Cells[0].Value?.ToString();
+            var worker = snapshot.Workers.FirstOrDefault(x => x.Account == account);
+            if (worker is not null)
+            {
+                SyncWorkerDetails(worker);
+                return;
+            }
+        }
 
-        lblSelectedAccountValue.Text = row.Cells[0].Value?.ToString() ?? "-";
-        lblSelectedSteamIdValue.Text = dgvBeTrade.CurrentRow != null ? "7656119...003" : (row.Cells.Count > 1 ? row.Cells[1].Value?.ToString() ?? "-" : "-");
-        lblSelectedMaFileValue.Text = row.Cells[row.Cells.Count - 1].Value?.ToString() ?? "-";
-        lblSelectedOfferValue.Text = dgvBeTrade.CurrentRow != null ? "#1039284" : "-";
-        lblSelectedErrorValue.Text = dgvBeTrade.CurrentRow != null && (row.Cells[1].Value?.ToString() == "Failed") ? "Login Failed" : "None";
-        lblSelectedInventoryValue.Text = dgvBeTrade.CurrentRow != null
-            ? $"{row.Cells[2].Value} total / {row.Cells[3].Value} tradable / {row.Cells[4].Value} cooldown"
-            : "N/A";
+        if (dgvMaster.CurrentRow is not null)
+        {
+            lblSelectedAccountValue.Text = dgvMaster.CurrentRow.Cells[0].Value?.ToString() ?? "-";
+            lblSelectedSteamIdValue.Text = dgvMaster.CurrentRow.Cells[1].Value?.ToString() ?? "-";
+            lblSelectedMaFileValue.Text = dgvMaster.CurrentRow.Cells[6].Value?.ToString() ?? "-";
+            lblSelectedOfferValue.Text = "-";
+            lblSelectedErrorValue.Text = "None";
+            lblSelectedInventoryValue.Text = "N/A";
+        }
     }
+
+    private void SyncWorkerDetails(WorkerAccountRow worker)
+    {
+        lblSelectedAccountValue.Text = worker.Account;
+        lblSelectedSteamIdValue.Text = worker.SteamId;
+        lblSelectedMaFileValue.Text = worker.MaFile;
+        lblSelectedOfferValue.Text = worker.RecentOfferId;
+        lblSelectedErrorValue.Text = worker.RecentError;
+        lblSelectedInventoryValue.Text = $"{worker.Inventory} total / {worker.Tradable} tradable / {worker.Cooldown} cooldown";
+    }
+
+    public void Info(string message) => AppendLog("INFO", message);
+    public void Warn(string message) => AppendLog("WARN", message);
+    public void Error(string message) => AppendLog("ERROR", message);
 
     private void AppendLog(string level, string message)
     {

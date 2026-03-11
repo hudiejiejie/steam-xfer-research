@@ -1,4 +1,4 @@
-namespace SpiderXferShell;
+namespace InventoryTransferConsole;
 
 partial class TransferInventoryConsoleForm
 {
@@ -524,3 +524,4 @@ partial class TransferInventoryConsoleForm
     private Label lblSelectedInventoryTitle;
     private Label lblSelectedInventoryValue;
 }
+
