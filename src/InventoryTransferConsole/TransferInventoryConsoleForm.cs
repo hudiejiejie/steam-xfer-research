@@ -44,10 +44,11 @@ public partial class TransferInventoryConsoleForm : Form, ILogSink
     private void RenderSnapshot()
     {
         SeedTables(snapshot);
-        lblMasterSummary.Text = $"Masters: {snapshot.Masters.Count}";
-        lblBeTradeSummary.Text = $"Workers: {snapshot.Workers.Count}";
-        lblRunState.Text = $"State: {snapshot.RunState}";
-        lblModeSummary.Text = $"Mode: {snapshot.ModeSummary}";
+        ApplyGridStateVisuals();
+        lblMasterSummary.Text = $"主库号：{snapshot.Masters.Count}";
+        lblBeTradeSummary.Text = $"待转号：{snapshot.Workers.Count}";
+        lblRunState.Text = $"状态：{snapshot.RunState}";
+        lblModeSummary.Text = $"模式：{snapshot.ModeSummary}";
 
         if (snapshot.Workers.Count > 0 && dgvBeTrade.Rows.Count > 0)
         {
@@ -59,10 +60,10 @@ public partial class TransferInventoryConsoleForm : Form, ILogSink
             dgvMaster.Rows[0].Selected = true;
             lblSelectedAccountValue.Text = snapshot.Masters[0].Account;
             lblSelectedSteamIdValue.Text = snapshot.Masters[0].SteamId;
-            lblSelectedMaFileValue.Text = snapshot.Masters[0].MaFile;
+            lblSelectedMaFileValue.Text = TranslateMaFile(snapshot.Masters[0].MaFile);
             lblSelectedOfferValue.Text = "-";
-            lblSelectedErrorValue.Text = "None";
-            lblSelectedInventoryValue.Text = "N/A";
+            lblSelectedErrorValue.Text = "无";
+            lblSelectedInventoryValue.Text = "无";
         }
     }
 
@@ -247,27 +248,27 @@ public partial class TransferInventoryConsoleForm : Form, ILogSink
     private void SeedTables(DashboardSnapshot data)
     {
         dgvMaster.Columns.Clear();
-        dgvMaster.Columns.Add("Account", "Account");
+        dgvMaster.Columns.Add("Account", "账号");
         dgvMaster.Columns.Add("SteamId", "SteamID");
-        dgvMaster.Columns.Add("LoginState", "Login");
-        dgvMaster.Columns.Add("Pending", "Pending");
-        dgvMaster.Columns.Add("Assigned", "Assigned");
-        dgvMaster.Columns.Add("Limit", "Limit");
+        dgvMaster.Columns.Add("LoginState", "登录状态");
+        dgvMaster.Columns.Add("Pending", "待接受");
+        dgvMaster.Columns.Add("Assigned", "已分配");
+        dgvMaster.Columns.Add("Limit", "上限");
         dgvMaster.Columns.Add("MaFile", "maFile");
         foreach (var row in data.Masters)
-            dgvMaster.Rows.Add(row.Account, row.SteamId, row.LoginState, row.Pending, row.Assigned, row.Limit, row.MaFile);
+            dgvMaster.Rows.Add(row.Account, row.SteamId, TranslateLoginState(row.LoginState), row.Pending, row.Assigned, row.Limit, TranslateMaFile(row.MaFile));
 
         dgvBeTrade.Columns.Clear();
-        dgvBeTrade.Columns.Add("Account", "Account");
-        dgvBeTrade.Columns.Add("LoginState", "Login");
-        dgvBeTrade.Columns.Add("Inventory", "Inventory");
-        dgvBeTrade.Columns.Add("Tradable", "Tradable");
-        dgvBeTrade.Columns.Add("Cooldown", "Cooldown");
-        dgvBeTrade.Columns.Add("Sent", "Sent");
-        dgvBeTrade.Columns.Add("TaskState", "Task State");
+        dgvBeTrade.Columns.Add("Account", "账号");
+        dgvBeTrade.Columns.Add("LoginState", "登录状态");
+        dgvBeTrade.Columns.Add("Inventory", "库存数");
+        dgvBeTrade.Columns.Add("Tradable", "可交易");
+        dgvBeTrade.Columns.Add("Cooldown", "冷却");
+        dgvBeTrade.Columns.Add("Sent", "已发报价");
+        dgvBeTrade.Columns.Add("TaskState", "当前状态");
         dgvBeTrade.Columns.Add("MaFile", "maFile");
         foreach (var row in data.Workers)
-            dgvBeTrade.Rows.Add(row.Account, row.LoginState, row.Inventory, row.Tradable, row.Cooldown, row.Sent, row.TaskState, row.MaFile);
+            dgvBeTrade.Rows.Add(row.Account, TranslateLoginState(row.LoginState), row.Inventory, row.Tradable, row.Cooldown, row.Sent, TranslateTaskState(row.TaskState), TranslateMaFile(row.MaFile));
     }
 
     private void BindEvents()
@@ -340,8 +341,8 @@ public partial class TransferInventoryConsoleForm : Form, ILogSink
             lblSelectedSteamIdValue.Text = dgvMaster.CurrentRow.Cells[1].Value?.ToString() ?? "-";
             lblSelectedMaFileValue.Text = dgvMaster.CurrentRow.Cells[6].Value?.ToString() ?? "-";
             lblSelectedOfferValue.Text = "-";
-            lblSelectedErrorValue.Text = "None";
-            lblSelectedInventoryValue.Text = "N/A";
+            lblSelectedErrorValue.Text = "无";
+            lblSelectedInventoryValue.Text = "无";
         }
     }
 
@@ -349,10 +350,67 @@ public partial class TransferInventoryConsoleForm : Form, ILogSink
     {
         lblSelectedAccountValue.Text = worker.Account;
         lblSelectedSteamIdValue.Text = worker.SteamId;
-        lblSelectedMaFileValue.Text = worker.MaFile;
+        lblSelectedMaFileValue.Text = TranslateMaFile(worker.MaFile);
         lblSelectedOfferValue.Text = worker.RecentOfferId;
-        lblSelectedErrorValue.Text = worker.RecentError;
-        lblSelectedInventoryValue.Text = $"{worker.Inventory} total / {worker.Tradable} tradable / {worker.Cooldown} cooldown";
+        lblSelectedErrorValue.Text = worker.RecentError == "None" ? "无" : worker.RecentError;
+        lblSelectedInventoryValue.Text = $"总 {worker.Inventory} / 可交易 {worker.Tradable} / 冷却 {worker.Cooldown}";
+    }
+
+    private string TranslateLoginState(string value) => value switch
+    {
+        "Online" => "在线",
+        "Offline" => "离线",
+        "Imported" => "已导入",
+        "Failed" => "失败",
+        _ => value
+    };
+
+    private string TranslateTaskState(string value) => value switch
+    {
+        "Offer Sent" => "已发报价",
+        "Queued" => "排队中",
+        "Inventory Ready" => "拉库存完成",
+        "Login Failed" => "登录失败",
+        "Awaiting Login" => "等待登录",
+        _ => value
+    };
+
+    private string TranslateMaFile(string value) => value switch
+    {
+        "Bound" => "已绑定",
+        "Missing" => "缺失",
+        _ => value
+    };
+
+    private void ApplyGridStateVisuals()
+    {
+        foreach (DataGridViewRow row in dgvMaster.Rows)
+        {
+            var login = row.Cells[2].Value?.ToString();
+            var maFile = row.Cells[6].Value?.ToString();
+            row.DefaultCellStyle.ForeColor = login == "离线" ? Danger : TextMain;
+            if (maFile == "缺失")
+                row.Cells[6].Style.ForeColor = Warning;
+        }
+
+        foreach (DataGridViewRow row in dgvBeTrade.Rows)
+        {
+            var login = row.Cells[1].Value?.ToString();
+            var task = row.Cells[6].Value?.ToString();
+            var maFile = row.Cells[7].Value?.ToString();
+
+            row.DefaultCellStyle.ForeColor = login == "失败" ? Danger : TextMain;
+            row.Cells[7].Style.ForeColor = maFile == "缺失" ? Warning : Success;
+
+            row.Cells[6].Style.ForeColor = task switch
+            {
+                "已发报价" => Accent,
+                "拉库存完成" => Success,
+                "排队中" => Warning,
+                "登录失败" => Danger,
+                _ => TextMain
+            };
+        }
     }
 
     public void Info(string message) => AppendLog("INFO", message);
