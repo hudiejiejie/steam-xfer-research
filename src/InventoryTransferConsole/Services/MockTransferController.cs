@@ -64,17 +64,13 @@ public sealed class MockTransferController : ITransferController
     public DashboardSnapshot ImportMaFiles(ILogSink logSink)
     {
         var matched = 0;
-        foreach (var worker in snapshot.Workers.Where(w => w.MaFile == "Missing").Take(2))
-        {
-            worker.MaFile = "Bound";
-            matched++;
-        }
-        foreach (var master in snapshot.Masters.Where(m => m.MaFile == "Missing").Take(1))
+        // 模拟：为主库号绑定令牌（maFile），仅修改主库号
+        foreach (var master in snapshot.Masters.Where(m => m.MaFile == "Missing").Take(2))
         {
             master.MaFile = "Bound";
             matched++;
         }
-        logSink.Info($"Mock bound maFiles for {matched} account(s).");
+        logSink.Info($"已模拟绑定主库号令牌（maFiles）{matched} 个。");
         return Clone(snapshot);
     }
 

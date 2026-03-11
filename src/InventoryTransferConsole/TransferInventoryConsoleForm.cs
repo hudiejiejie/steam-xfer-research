@@ -143,22 +143,37 @@ public partial class TransferInventoryConsoleForm : Form, ILogSink
         foreach (var title in new[] { lblParamsTitle, lblMasterTitle, lblBeTradeTitle, lblLogTitle, lblDetailsTitle, lblAppTitle })
             title.ForeColor = TextMain;
 
-        lblAppTitle.Font = new Font("Bahnschrift SemiBold", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
-        lblRunState.ForeColor = Success;
+        foreach (var title in new[] { lblParamsTitle, lblMasterTitle, lblBeTradeTitle, lblLogTitle, lblDetailsTitle })
+            title.Font = new Font("Bahnschrift SemiBold", 10.25F, FontStyle.Bold, GraphicsUnit.Point);
+
+        lblAppTitle.Font = new Font("Bahnschrift SemiBold", 13.5F, FontStyle.Bold, GraphicsUnit.Point);
+        lblRunState.ForeColor = TextMain;
+        lblRunState.BackColor = PanelBg2;
+        lblRunState.Padding = new Padding(8, 3, 8, 3);
+        lblRunState.Font = new Font("Microsoft YaHei UI Semibold", 8.8F, FontStyle.Bold, GraphicsUnit.Point);
+
         foreach (var s in new[] { lblThreadSummary, lblMasterSummary, lblBeTradeSummary, lblModeSummary })
+        {
             s.ForeColor = TextSub;
+            s.Font = new Font("Microsoft YaHei UI", 8.6F, FontStyle.Regular, GraphicsUnit.Point);
+        }
 
         foreach (var label in new[] { lblThread, lblTransferType, lblAcceptMode, lblItemType, lblItemFilter, lblSelectedAccountTitle, lblSelectedSteamIdTitle, lblSelectedMaFileTitle, lblSelectedOfferTitle, lblSelectedErrorTitle, lblSelectedInventoryTitle })
             label.ForeColor = TextSub;
         foreach (var value in new[] { lblSelectedAccountValue, lblSelectedSteamIdValue, lblSelectedMaFileValue, lblSelectedOfferValue, lblSelectedErrorValue, lblSelectedInventoryValue })
+        {
             value.ForeColor = TextMain;
+            value.Font = new Font("Microsoft YaHei UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
+        }
 
         StyleButton(btnImportAccounts, PanelBg2, TextMain);
+        btnImportAccounts.Text = "导入代转号（账密）";
         StyleButton(btnImportMaFiles, PanelBg2, TextMain);
+        btnImportMaFiles.Text = "导入主库号（令牌）";
         StyleButton(btnViewInventory, PanelBg2, TextMain);
         StyleButton(btnExport, PanelBg2, TextMain);
-        StyleButton(btnStop, ColorTranslator.FromHtml("#3A2722"), Warning);
-        StyleButton(btnStart, ColorTranslator.FromHtml("#10314D"), Accent);
+        StyleButton(btnStop, ColorTranslator.FromHtml("#2A2F38"), TextSub);
+        StyleButton(btnStart, ColorTranslator.FromHtml("#314154"), TextMain);
         StyleButton(btnClearLog, PanelBg2, TextSub, true);
 
         StyleInput(txtItemFilter);
@@ -177,7 +192,7 @@ public partial class TransferInventoryConsoleForm : Form, ILogSink
         btn.BackColor = back;
         btn.ForeColor = fore;
         btn.FlatStyle = FlatStyle.Flat;
-        btn.FlatAppearance.BorderColor = Accent;
+        btn.FlatAppearance.BorderColor = ColorTranslator.FromHtml("#364051");
         btn.FlatAppearance.BorderSize = 1;
         btn.Font = new Font("Microsoft YaHei UI", compact ? 8.5F : 9F, FontStyle.Regular, GraphicsUnit.Point);
         btn.Height = compact ? 30 : 38;
@@ -239,8 +254,8 @@ public partial class TransferInventoryConsoleForm : Form, ILogSink
         dgv.ColumnHeadersDefaultCellStyle.Font = new Font("Bahnschrift SemiBold", 9F, FontStyle.Bold, GraphicsUnit.Point);
         dgv.DefaultCellStyle.BackColor = PanelBg2;
         dgv.DefaultCellStyle.ForeColor = TextMain;
-        dgv.AlternatingRowsDefaultCellStyle.BackColor = ColorTranslator.FromHtml("#202734");
-        dgv.DefaultCellStyle.SelectionBackColor = ColorTranslator.FromHtml("#2A3443");
+        dgv.AlternatingRowsDefaultCellStyle.BackColor = ColorTranslator.FromHtml("#20252F");
+        dgv.DefaultCellStyle.SelectionBackColor = ColorTranslator.FromHtml("#2D3542");
         dgv.DefaultCellStyle.SelectionForeColor = Color.White;
         dgv.DefaultCellStyle.Font = new Font("Microsoft YaHei UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
         dgv.RowTemplate.Height = 30;

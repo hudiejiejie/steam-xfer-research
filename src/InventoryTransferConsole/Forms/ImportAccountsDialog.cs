@@ -15,18 +15,18 @@ public sealed class ImportAccountsDialog : Form
 
     public ImportAccountsDialog()
     {
-        Text = "导入账号";
+        Text = "导入代转号（账密）";
         StartPosition = FormStartPosition.CenterParent;
         MinimumSize = new Size(760, 520);
         Size = new Size(820, 560);
-        BackColor = ColorTranslator.FromHtml("#0F1115");
-        ForeColor = ColorTranslator.FromHtml("#E6EAF2");
+        BackColor = ColorTranslator.FromHtml("#111317");
+        ForeColor = ColorTranslator.FromHtml("#ECEFF4");
         Font = new Font("Microsoft YaHei UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
 
-        var pnlTop = new Panel { Dock = DockStyle.Top, Height = 72, Padding = new Padding(16, 14, 16, 10), BackColor = ColorTranslator.FromHtml("#171A21") };
+        var pnlTop = new Panel { Dock = DockStyle.Top, Height = 72, Padding = new Padding(16, 14, 16, 10), BackColor = ColorTranslator.FromHtml("#171B22") };
         var lblTitle = new Label
         {
-            Text = "粘贴账号文本",
+            Text = "粘贴代转号账密（账号----密码等）",
             Dock = DockStyle.Top,
             Height = 26,
             Font = new Font("Bahnschrift SemiBold", 13F, FontStyle.Bold, GraphicsUnit.Point),
@@ -34,7 +34,7 @@ public sealed class ImportAccountsDialog : Form
         };
         lblHint = new Label
         {
-            Text = "支持：账号----密码  |  账号:密码  |  账号,密码",
+            Text = "格式：账号----密码  |  账号:密码  |  账号,密码",
             Dock = DockStyle.Bottom,
             Height = 20,
             ForeColor = ColorTranslator.FromHtml("#9AA4B2")
@@ -62,8 +62,8 @@ public sealed class ImportAccountsDialog : Form
             Text = "尚未输入内容。"
         };
 
-        btnLoadDemo = CreateButton("加载示例", ColorTranslator.FromHtml("#1D2230"), ColorTranslator.FromHtml("#E6EAF2"));
-        btnConfirm = CreateButton("导入", ColorTranslator.FromHtml("#2C3442"), ColorTranslator.FromHtml("#E6EAF2"));
+        btnLoadDemo = CreateButton("加载代转号示例", ColorTranslator.FromHtml("#1D2230"), ColorTranslator.FromHtml("#E6EAF2"));
+        btnConfirm = CreateButton("导入代转号", ColorTranslator.FromHtml("#2C3442"), ColorTranslator.FromHtml("#E6EAF2"));
         btnCancel = CreateButton("取消", ColorTranslator.FromHtml("#23272F"), ColorTranslator.FromHtml("#A7AFBD"));
 
         btnLoadDemo.Location = new Point(0, 0);
