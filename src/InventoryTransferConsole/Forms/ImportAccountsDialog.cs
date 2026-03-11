@@ -56,7 +56,7 @@ public sealed class ImportAccountsDialog : Form
         {
             AutoSize = false,
             Dock = DockStyle.Left,
-            Width = 360,
+            Width = 420,
             TextAlign = ContentAlignment.MiddleLeft,
             ForeColor = ColorTranslator.FromHtml("#9AA4B2"),
             Text = "No content yet."
@@ -65,14 +65,6 @@ public sealed class ImportAccountsDialog : Form
         btnLoadDemo = CreateButton("Load Demo", ColorTranslator.FromHtml("#1D2230"), ColorTranslator.FromHtml("#E6EAF2"));
         btnConfirm = CreateButton("Import", ColorTranslator.FromHtml("#10314D"), ColorTranslator.FromHtml("#4DA3FF"));
         btnCancel = CreateButton("Cancel", ColorTranslator.FromHtml("#2A2020"), ColorTranslator.FromHtml("#F5A524"));
-
-        btnLoadDemo.Location = new Point(0, 0);
-        btnConfirm.Location = new Point(0, 0);
-        btnCancel.Location = new Point(0, 0);
-
-        btnLoadDemo.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-        btnConfirm.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-        btnCancel.Anchor = AnchorStyles.Top | AnchorStyles.Right;
 
         pnlBottom.Controls.Add(lblSummary);
         pnlBottom.Controls.Add(btnCancel);
@@ -88,7 +80,7 @@ public sealed class ImportAccountsDialog : Form
         txtInput.TextChanged += (_, _) => RecomputeSummary();
         btnLoadDemo.Click += (_, _) =>
         {
-            txtInput.Text = "worker_alpha----pass123\nworker_beta:pass456\nworker_gamma,pass789";
+            txtInput.Text = "worker_alpha----pass123\nworker_beta:pass456\nworker_alpha,pass999\ninvalid_line_only_account\nworker_gamma|pass789";
         };
         btnCancel.Click += (_, _) =>
         {
@@ -126,7 +118,7 @@ public sealed class ImportAccountsDialog : Form
     private void RecomputeSummary()
     {
         var result = ParseText(txtInput.Text);
-        lblSummary.Text = $"Lines: {result.RawLines.Count}  |  Parsed: {result.ParsedCount}  |  Invalid: {result.InvalidCount}";
+        lblSummary.Text = $"Lines: {result.RawLines.Count} | Parsed: {result.ParsedCount} | Invalid: {result.InvalidCount} | Duplicates: {result.DuplicateCount} | Accepted: {result.FinalAcceptedCount}";
     }
 
     private static ImportAccountsResult ParseText(string text)
@@ -137,13 +129,25 @@ public sealed class ImportAccountsDialog : Form
             .ToList();
 
         var result = new ImportAccountsResult { RawLines = lines };
+        var seen = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
+
         foreach (var line in lines)
         {
             var parts = SplitLine(line);
             if (parts is null || string.IsNullOrWhiteSpace(parts.Value.account) || string.IsNullOrWhiteSpace(parts.Value.password))
+            {
                 result.InvalidCount++;
-            else
-                result.ParsedCount++;
+                continue;
+            }
+
+            result.ParsedCount++;
+            if (!seen.Add(parts.Value.account))
+            {
+                result.DuplicateCount++;
+                continue;
+            }
+
+            result.FinalAcceptedCount++;
         }
         return result;
     }
