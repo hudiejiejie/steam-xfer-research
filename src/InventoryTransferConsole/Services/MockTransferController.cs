@@ -4,17 +4,10 @@ namespace InventoryTransferConsole.Services;
 
 public sealed class MockTransferController : ITransferController
 {
-    private readonly ILoadAccountAdapter loadAccountAdapter;
     private DashboardSnapshot snapshot;
 
     public MockTransferController()
-        : this(new LoadAccountAdapter())
     {
-    }
-
-    public MockTransferController(ILoadAccountAdapter loadAccountAdapter)
-    {
-        this.loadAccountAdapter = loadAccountAdapter;
         snapshot = BuildDefaultSnapshot();
     }
 
@@ -46,23 +39,26 @@ public sealed class MockTransferController : ITransferController
 
     public DashboardSnapshot ImportAccounts(ImportAccountsResult importResult, ILogSink logSink)
     {
-        var imported = loadAccountAdapter.Convert(importResult);
-        foreach (var aggregate in imported)
+        var nextIndex = snapshot.Workers.Count + 1;
+        foreach (var line in importResult.RawLines)
         {
+            var parsed = SplitLine(line);
+            if (parsed is null) continue;
             snapshot.Workers.Add(new WorkerAccountRow
             {
-                Account = aggregate.Profile.AccountName,
-                LoginState = aggregate.Runtime.LoginState,
-                Inventory = aggregate.Inventory.TotalCount,
-                Tradable = aggregate.Inventory.TradableCount,
-                Cooldown = aggregate.Inventory.CooldownCount,
-                Sent = aggregate.Trade.SentCount,
-                TaskState = aggregate.Trade.TaskState,
-                MaFile = aggregate.Guard.IsBound ? "Bound" : "Missing",
-                SteamId = aggregate.Profile.SteamId,
-                RecentOfferId = aggregate.Trade.RecentOfferId,
-                RecentError = aggregate.RecentError
+                Account = parsed.Value.account,
+                LoginState = "Imported",
+                Inventory = 0,
+                Tradable = 0,
+                Cooldown = 0,
+                Sent = 0,
+                TaskState = "Awaiting Login",
+                MaFile = "Missing",
+                SteamId = $"7656119...{nextIndex:000}",
+                RecentOfferId = "-",
+                RecentError = "None"
             });
+            nextIndex++;
         }
         SyncAggregatesFromRows();
         logSink.Info($"Imported {importResult.ParsedCount} account(s). Invalid={importResult.InvalidCount}");
@@ -152,6 +148,17 @@ public sealed class MockTransferController : ITransferController
         }));
 
         return result;
+    }
+
+    private static (string account, string password)? SplitLine(string line)
+    {
+        foreach (var sep in new[] { "----", ":", ",", "|" })
+        {
+            var parts = line.Split(sep, StringSplitOptions.TrimEntries);
+            if (parts.Length >= 2)
+                return (parts[0], parts[1]);
+        }
+        return null;
     }
 
     private static DashboardSnapshot Clone(DashboardSnapshot src)
