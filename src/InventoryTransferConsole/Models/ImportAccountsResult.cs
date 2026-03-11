@@ -5,6 +5,4 @@ public sealed class ImportAccountsResult
     public List<string> RawLines { get; set; } = [];
     public int ParsedCount { get; set; }
     public int InvalidCount { get; set; }
-    public int DuplicateCount { get; set; }
-    public int FinalAcceptedCount { get; set; }
 }
