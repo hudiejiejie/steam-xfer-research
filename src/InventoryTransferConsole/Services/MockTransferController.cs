@@ -4,11 +4,14 @@ namespace InventoryTransferConsole.Services;
 
 public sealed class MockTransferController : ITransferController
 {
+    private readonly AccountWorkspaceRepository repository;
     private DashboardSnapshot snapshot;
 
     public MockTransferController()
     {
+        repository = new AccountWorkspaceRepository();
         snapshot = BuildDefaultSnapshot();
+        LoadPersistedAccountsIntoSnapshot();
         SyncMaFileState(snapshot);
     }
 
@@ -64,6 +67,7 @@ public sealed class MockTransferController : ITransferController
             nextIndex++;
             imported++;
         }
+        repository.UpsertMasters(importResult.ParsedAccounts);
         SyncMaFileState(snapshot);
         logSink.Info($"已载入主库号 {imported} 个；令牌统一从 maf 文件夹自动匹配。");
         return Clone(snapshot);
@@ -95,6 +99,7 @@ public sealed class MockTransferController : ITransferController
             nextIndex++;
             imported++;
         }
+        repository.UpsertWorkers(importResult.ParsedAccounts);
         SyncMaFileState(snapshot);
         logSink.Info($"已载入待转号 {imported} 个；令牌统一从 maf 文件夹自动匹配。");
         return Clone(snapshot);
@@ -108,6 +113,51 @@ public sealed class MockTransferController : ITransferController
     public void ExportResults(ILogSink logSink)
     {
         logSink.Info("Export clicked.");
+    }
+
+    private void LoadPersistedAccountsIntoSnapshot()
+    {
+        var nextMasterIndex = snapshot.Masters.Count + 1;
+        foreach (var account in repository.LoadMasters())
+        {
+            if (snapshot.Masters.Any(x => x.Account.Equals(account.Account, StringComparison.OrdinalIgnoreCase)))
+                continue;
+
+            snapshot.Masters.Add(new MasterAccountRow
+            {
+                Account = account.Account,
+                SteamId = $"7656119...M{nextMasterIndex:000}",
+                LoginState = "Imported",
+                Pending = 0,
+                Assigned = 0,
+                Limit = 200,
+                MaFile = AccountImportService.ResolveMaFileState(account.Account)
+            });
+            nextMasterIndex++;
+        }
+
+        var nextWorkerIndex = snapshot.Workers.Count + 1;
+        foreach (var account in repository.LoadWorkers())
+        {
+            if (snapshot.Workers.Any(x => x.Account.Equals(account.Account, StringComparison.OrdinalIgnoreCase)))
+                continue;
+
+            snapshot.Workers.Add(new WorkerAccountRow
+            {
+                Account = account.Account,
+                LoginState = "Imported",
+                Inventory = 0,
+                Tradable = 0,
+                Cooldown = 0,
+                Sent = 0,
+                TaskState = "Awaiting Login",
+                MaFile = AccountImportService.ResolveMaFileState(account.Account),
+                SteamId = $"7656119...W{nextWorkerIndex:000}",
+                RecentOfferId = "-",
+                RecentError = "None"
+            });
+            nextWorkerIndex++;
+        }
     }
 
     private static DashboardSnapshot BuildDefaultSnapshot()
