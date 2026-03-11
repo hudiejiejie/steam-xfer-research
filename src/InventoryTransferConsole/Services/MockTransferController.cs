@@ -9,9 +9,14 @@ public sealed class MockTransferController : ITransferController
     public MockTransferController()
     {
         snapshot = BuildDefaultSnapshot();
+        SyncMaFileState(snapshot);
     }
 
-    public DashboardSnapshot LoadSnapshot() => Clone(snapshot);
+    public DashboardSnapshot LoadSnapshot()
+    {
+        SyncMaFileState(snapshot);
+        return Clone(snapshot);
+    }
 
     public DashboardSnapshot StartTransfer(RuntimeSettings settings, ILogSink logSink)
     {
@@ -23,7 +28,10 @@ public sealed class MockTransferController : ITransferController
             if (worker.LoginState == "Online")
                 worker.TaskState = worker.Sent > 0 ? "Offer Sent" : "Queued";
         }
-        logSink.Info($"Transfer started. Threads={settings.ThreadCount}, Mode={snapshot.ModeSummary}, Filter={settings.ItemFilterValue}");
+        var categories = settings.SelectedItemCategories.Count > 0
+            ? string.Join("、", settings.SelectedItemCategories)
+            : "未选择";
+        logSink.Info($"Transfer started. Threads={settings.ThreadCount}, Mode={snapshot.ModeSummary}, Categories={categories}");
         return Clone(snapshot);
     }
 
@@ -34,43 +42,61 @@ public sealed class MockTransferController : ITransferController
         return Clone(snapshot);
     }
 
-    public DashboardSnapshot ImportAccounts(ImportAccountsResult importResult, ILogSink logSink)
+    public DashboardSnapshot ImportMasters(ImportAccountsResult importResult, ILogSink logSink)
+    {
+        var nextIndex = snapshot.Masters.Count + 1;
+        var imported = 0;
+        foreach (var parsed in importResult.ParsedAccounts)
+        {
+            if (snapshot.Masters.Any(x => x.Account.Equals(parsed.Account, StringComparison.OrdinalIgnoreCase)))
+                continue;
+
+            snapshot.Masters.Add(new MasterAccountRow
+            {
+                Account = parsed.Account,
+                SteamId = $"7656119...M{nextIndex:000}",
+                LoginState = "Imported",
+                Pending = 0,
+                Assigned = 0,
+                Limit = 200,
+                MaFile = AccountImportService.ResolveMaFileState(parsed.Account)
+            });
+            nextIndex++;
+            imported++;
+        }
+        SyncMaFileState(snapshot);
+        logSink.Info($"已载入主库号 {imported} 个；令牌统一从 maf 文件夹自动匹配。");
+        return Clone(snapshot);
+    }
+
+    public DashboardSnapshot ImportWorkers(ImportAccountsResult importResult, ILogSink logSink)
     {
         var nextIndex = snapshot.Workers.Count + 1;
-        foreach (var line in importResult.RawLines)
+        var imported = 0;
+        foreach (var parsed in importResult.ParsedAccounts)
         {
-            var parsed = SplitLine(line);
-            if (parsed is null) continue;
+            if (snapshot.Workers.Any(x => x.Account.Equals(parsed.Account, StringComparison.OrdinalIgnoreCase)))
+                continue;
+
             snapshot.Workers.Add(new WorkerAccountRow
             {
-                Account = parsed.Value.account,
+                Account = parsed.Account,
                 LoginState = "Imported",
                 Inventory = 0,
                 Tradable = 0,
                 Cooldown = 0,
                 Sent = 0,
                 TaskState = "Awaiting Login",
-                MaFile = "Missing",
-                SteamId = $"7656119...{nextIndex:000}",
+                MaFile = AccountImportService.ResolveMaFileState(parsed.Account),
+                SteamId = $"7656119...W{nextIndex:000}",
                 RecentOfferId = "-",
                 RecentError = "None"
             });
             nextIndex++;
+            imported++;
         }
-        logSink.Info($"Imported {importResult.ParsedCount} account(s). Invalid={importResult.InvalidCount}");
-        return Clone(snapshot);
-    }
-
-    public DashboardSnapshot ImportMaFiles(ILogSink logSink)
-    {
-        var matched = 0;
-        // 模拟：为主库号绑定令牌（maFile），仅修改主库号
-        foreach (var master in snapshot.Masters.Where(m => m.MaFile == "Missing").Take(2))
-        {
-            master.MaFile = "Bound";
-            matched++;
-        }
-        logSink.Info($"已模拟绑定主库号令牌（maFiles）{matched} 个。");
+        SyncMaFileState(snapshot);
+        logSink.Info($"已载入待转号 {imported} 个；令牌统一从 maf 文件夹自动匹配。");
         return Clone(snapshot);
     }
 
@@ -162,15 +188,12 @@ public sealed class MockTransferController : ITransferController
         };
     }
 
-    private static (string account, string password)? SplitLine(string line)
+    private static void SyncMaFileState(DashboardSnapshot data)
     {
-        foreach (var sep in new[] { "----", ":", ",", "|" })
-        {
-            var parts = line.Split(sep, StringSplitOptions.TrimEntries);
-            if (parts.Length >= 2)
-                return (parts[0], parts[1]);
-        }
-        return null;
+        foreach (var master in data.Masters)
+            master.MaFile = AccountImportService.ResolveMaFileState(master.Account);
+        foreach (var worker in data.Workers)
+            worker.MaFile = AccountImportService.ResolveMaFileState(worker.Account);
     }
 
     private static DashboardSnapshot Clone(DashboardSnapshot src)

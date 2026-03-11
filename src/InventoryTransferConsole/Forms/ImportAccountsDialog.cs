@@ -1,4 +1,5 @@
 using InventoryTransferConsole.Models;
+using InventoryTransferConsole.Services;
 
 namespace InventoryTransferConsole.Forms;
 
@@ -10,34 +11,36 @@ public sealed class ImportAccountsDialog : Form
     private readonly Button btnLoadDemo;
     private readonly Button btnConfirm;
     private readonly Button btnCancel;
+    private readonly string demoPrefix;
 
     public ImportAccountsResult Result { get; private set; } = new();
 
-    public ImportAccountsDialog()
+    public ImportAccountsDialog(string scopeTitle, string demoPrefix)
     {
-        Text = "导入代转号（账密）";
+        this.demoPrefix = demoPrefix;
+        Text = $"粘贴载入{scopeTitle}";
         StartPosition = FormStartPosition.CenterParent;
         MinimumSize = new Size(760, 520);
         Size = new Size(820, 560);
-        BackColor = ColorTranslator.FromHtml("#111317");
-        ForeColor = ColorTranslator.FromHtml("#ECEFF4");
+        BackColor = ColorTranslator.FromHtml("#EEF2F6");
+        ForeColor = ColorTranslator.FromHtml("#243244");
         Font = new Font("Microsoft YaHei UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
 
-        var pnlTop = new Panel { Dock = DockStyle.Top, Height = 72, Padding = new Padding(16, 14, 16, 10), BackColor = ColorTranslator.FromHtml("#171B22") };
+        var pnlTop = new Panel { Dock = DockStyle.Top, Height = 72, Padding = new Padding(16, 14, 16, 10), BackColor = ColorTranslator.FromHtml("#FBFCFE") };
         var lblTitle = new Label
         {
-            Text = "粘贴代转号账密（账号----密码等）",
+            Text = $"粘贴{scopeTitle}账号账密",
             Dock = DockStyle.Top,
             Height = 26,
             Font = new Font("Bahnschrift SemiBold", 13F, FontStyle.Bold, GraphicsUnit.Point),
-            ForeColor = ColorTranslator.FromHtml("#E6EAF2")
+            ForeColor = ColorTranslator.FromHtml("#243244")
         };
         lblHint = new Label
         {
-            Text = "格式：账号----密码  |  账号:密码  |  账号,密码",
+            Text = "格式：账号----密码（兼容 —— / : / , / |）",
             Dock = DockStyle.Bottom,
             Height = 20,
-            ForeColor = ColorTranslator.FromHtml("#9AA4B2")
+            ForeColor = ColorTranslator.FromHtml("#6B7B8F")
         };
         pnlTop.Controls.Add(lblHint);
         pnlTop.Controls.Add(lblTitle);
@@ -46,25 +49,25 @@ public sealed class ImportAccountsDialog : Form
         {
             Dock = DockStyle.Fill,
             BorderStyle = BorderStyle.None,
-            BackColor = ColorTranslator.FromHtml("#121722"),
-            ForeColor = ColorTranslator.FromHtml("#E6EAF2"),
+            BackColor = ColorTranslator.FromHtml("#FFFFFF"),
+            ForeColor = ColorTranslator.FromHtml("#243244"),
             Font = new Font("Cascadia Mono", 10F, FontStyle.Regular, GraphicsUnit.Point)
         };
 
-        var pnlBottom = new Panel { Dock = DockStyle.Bottom, Height = 68, Padding = new Padding(16, 12, 16, 12), BackColor = ColorTranslator.FromHtml("#171A21") };
+        var pnlBottom = new Panel { Dock = DockStyle.Bottom, Height = 68, Padding = new Padding(16, 12, 16, 12), BackColor = ColorTranslator.FromHtml("#FBFCFE") };
         lblSummary = new Label
         {
             AutoSize = false,
             Dock = DockStyle.Left,
             Width = 360,
             TextAlign = ContentAlignment.MiddleLeft,
-            ForeColor = ColorTranslator.FromHtml("#9AA4B2"),
+            ForeColor = ColorTranslator.FromHtml("#6B7B8F"),
             Text = "尚未输入内容。"
         };
 
-        btnLoadDemo = CreateButton("加载代转号示例", ColorTranslator.FromHtml("#1D2230"), ColorTranslator.FromHtml("#E6EAF2"));
-        btnConfirm = CreateButton("导入代转号", ColorTranslator.FromHtml("#2C3442"), ColorTranslator.FromHtml("#E6EAF2"));
-        btnCancel = CreateButton("取消", ColorTranslator.FromHtml("#23272F"), ColorTranslator.FromHtml("#A7AFBD"));
+        btnLoadDemo = CreateButton("加载示例", ColorTranslator.FromHtml("#F1F4F8"), ColorTranslator.FromHtml("#243244"));
+        btnConfirm = CreateButton("载入", ColorTranslator.FromHtml("#2F6FED"), Color.White);
+        btnCancel = CreateButton("取消", ColorTranslator.FromHtml("#F1F4F8"), ColorTranslator.FromHtml("#6B7B8F"));
 
         btnLoadDemo.Location = new Point(0, 0);
         btnConfirm.Location = new Point(0, 0);
@@ -88,7 +91,7 @@ public sealed class ImportAccountsDialog : Form
         txtInput.TextChanged += (_, _) => RecomputeSummary();
         btnLoadDemo.Click += (_, _) =>
         {
-            txtInput.Text = "worker_alpha----pass123\nworker_beta:pass456\nworker_gamma,pass789";
+            txtInput.Text = $"{demoPrefix}_alpha----pass123\n{demoPrefix}_beta----pass456\n{demoPrefix}_gamma----pass789";
         };
         btnCancel.Click += (_, _) =>
         {
@@ -129,33 +132,6 @@ public sealed class ImportAccountsDialog : Form
         lblSummary.Text = $"总行数：{result.RawLines.Count}  |  解析成功：{result.ParsedCount}  |  非法：{result.InvalidCount}";
     }
 
-    private static ImportAccountsResult ParseText(string text)
-    {
-        var lines = text.Replace("\r", string.Empty)
-            .Split('\n', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries)
-            .Where(x => !string.IsNullOrWhiteSpace(x))
-            .ToList();
-
-        var result = new ImportAccountsResult { RawLines = lines };
-        foreach (var line in lines)
-        {
-            var parts = SplitLine(line);
-            if (parts is null || string.IsNullOrWhiteSpace(parts.Value.account) || string.IsNullOrWhiteSpace(parts.Value.password))
-                result.InvalidCount++;
-            else
-                result.ParsedCount++;
-        }
-        return result;
-    }
-
-    private static (string account, string password)? SplitLine(string line)
-    {
-        foreach (var sep in new[] { "----", ":", ",", "|" })
-        {
-            var parts = line.Split(sep, StringSplitOptions.TrimEntries);
-            if (parts.Length >= 2)
-                return (parts[0], parts[1]);
-        }
-        return null;
-    }
+    public static ImportAccountsResult ParseText(string text)
+        => AccountImportService.ParseText(text);
 }

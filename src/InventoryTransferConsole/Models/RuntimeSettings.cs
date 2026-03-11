@@ -7,4 +7,5 @@ public sealed class RuntimeSettings
     public int AcceptModeIndex { get; set; } = 0;
     public int ItemTypeIndex { get; set; } = 0;
     public string ItemFilterValue { get; set; } = string.Empty;
+    public List<string> SelectedItemCategories { get; set; } = [];
 }
