@@ -16,33 +16,78 @@ public partial class TransferInventoryConsoleForm : Form, ILogSink
     private readonly Color Danger = ColorTranslator.FromHtml("#FF5D5D");
 
     private readonly ITransferController controller;
+    private readonly ISettingsService settingsService;
     private DashboardSnapshot snapshot = new();
+    private AppSettings appSettings = new();
+    private bool suppressSettingsEvents;
 
     public TransferInventoryConsoleForm()
     {
         controller = new MockTransferController();
+        settingsService = new JsonSettingsService();
         InitializeComponent();
         ApplyTheme();
         LoadDashboard();
+        LoadSettingsIntoUi();
         BindEvents();
-        Info("Console shell loaded.");
+        Info($"Console shell loaded. Settings: {settingsService.SettingsPath}");
     }
 
     private void LoadDashboard()
     {
         snapshot = controller.LoadSnapshot();
         SeedTables(snapshot);
-        numThreadCount.Value = snapshot.ThreadCount;
-        lblThreadSummary.Text = $"Threads: {snapshot.ThreadCount}";
         lblMasterSummary.Text = $"Masters: {snapshot.Masters.Count}";
         lblBeTradeSummary.Text = $"Workers: {snapshot.Workers.Count}";
-        lblModeSummary.Text = $"Mode: {snapshot.ModeSummary}";
         lblRunState.Text = $"State: {snapshot.RunState}";
         if (snapshot.Workers.Count > 0)
         {
             dgvBeTrade.Rows[0].Selected = true;
             SyncWorkerDetails(snapshot.Workers[0]);
         }
+    }
+
+    private void LoadSettingsIntoUi()
+    {
+        suppressSettingsEvents = true;
+        appSettings = settingsService.Load();
+
+        cmbTransferType.Items.Clear();
+        cmbTransferType.Items.AddRange(new object[] { "Send+Accept", "Send All Then Accept" });
+        cmbAcceptMode.Items.Clear();
+        cmbAcceptMode.Items.AddRange(new object[] { "Auto Accept", "Delayed Accept", "Manual Confirm" });
+        cmbItemType.Items.Clear();
+        cmbItemType.Items.AddRange(new object[] { "Filter by Type", "Filter by Exact Name" });
+
+        numThreadCount.Value = Math.Max(numThreadCount.Minimum, Math.Min(numThreadCount.Maximum, appSettings.Runtime.ThreadCount));
+        cmbTransferType.SelectedIndex = ClampIndex(appSettings.Runtime.TransferTypeIndex, cmbTransferType.Items.Count);
+        cmbAcceptMode.SelectedIndex = ClampIndex(appSettings.Runtime.AcceptModeIndex, cmbAcceptMode.Items.Count);
+        cmbItemType.SelectedIndex = ClampIndex(appSettings.Runtime.ItemTypeIndex, cmbItemType.Items.Count);
+        txtItemFilter.Text = appSettings.Runtime.ItemFilterValue;
+
+        lblThreadSummary.Text = $"Threads: {numThreadCount.Value}";
+        lblModeSummary.Text = $"Mode: {cmbTransferType.Text}";
+        suppressSettingsEvents = false;
+    }
+
+    private static int ClampIndex(int index, int count)
+    {
+        if (count <= 0) return -1;
+        if (index < 0) return 0;
+        if (index >= count) return 0;
+        return index;
+    }
+
+    private void SaveSettingsFromUi()
+    {
+        if (suppressSettingsEvents) return;
+
+        appSettings.Runtime.ThreadCount = (int)numThreadCount.Value;
+        appSettings.Runtime.TransferTypeIndex = cmbTransferType.SelectedIndex;
+        appSettings.Runtime.AcceptModeIndex = cmbAcceptMode.SelectedIndex;
+        appSettings.Runtime.ItemTypeIndex = cmbItemType.SelectedIndex;
+        appSettings.Runtime.ItemFilterValue = txtItemFilter.Text.Trim();
+        settingsService.Save(appSettings);
     }
 
     private void ApplyTheme()
@@ -187,16 +232,6 @@ public partial class TransferInventoryConsoleForm : Form, ILogSink
         dgvBeTrade.Columns.Add("MaFile", "maFile");
         foreach (var row in data.Workers)
             dgvBeTrade.Rows.Add(row.Account, row.LoginState, row.Inventory, row.Tradable, row.Cooldown, row.Sent, row.TaskState, row.MaFile);
-
-        cmbTransferType.Items.Clear();
-        cmbTransferType.Items.AddRange(new object[] { "Send+Accept", "Send All Then Accept" });
-        cmbAcceptMode.Items.Clear();
-        cmbAcceptMode.Items.AddRange(new object[] { "Auto Accept", "Delayed Accept", "Manual Confirm" });
-        cmbItemType.Items.Clear();
-        cmbItemType.Items.AddRange(new object[] { "Filter by Type", "Filter by Exact Name" });
-        cmbTransferType.SelectedIndex = 0;
-        cmbAcceptMode.SelectedIndex = 0;
-        cmbItemType.SelectedIndex = 0;
     }
 
     private void BindEvents()
@@ -207,6 +242,7 @@ public partial class TransferInventoryConsoleForm : Form, ILogSink
         btnExport.Click += (_, _) => controller.ExportResults(this);
         btnStart.Click += (_, _) =>
         {
+            SaveSettingsFromUi();
             lblRunState.Text = "State: Running";
             lblRunState.ForeColor = Success;
             controller.StartTransfer(this);
@@ -221,8 +257,20 @@ public partial class TransferInventoryConsoleForm : Form, ILogSink
         chkAutoScroll.Checked = true;
         dgvBeTrade.SelectionChanged += (_, _) => SyncSelectionDetails();
         dgvMaster.SelectionChanged += (_, _) => SyncSelectionDetails();
-        cmbTransferType.SelectedIndexChanged += (_, _) => lblModeSummary.Text = $"Mode: {cmbTransferType.Text}";
-        numThreadCount.ValueChanged += (_, _) => lblThreadSummary.Text = $"Threads: {numThreadCount.Value}";
+        cmbTransferType.SelectedIndexChanged += (_, _) =>
+        {
+            lblModeSummary.Text = $"Mode: {cmbTransferType.Text}";
+            SaveSettingsFromUi();
+        };
+        cmbAcceptMode.SelectedIndexChanged += (_, _) => SaveSettingsFromUi();
+        cmbItemType.SelectedIndexChanged += (_, _) => SaveSettingsFromUi();
+        txtItemFilter.TextChanged += (_, _) => SaveSettingsFromUi();
+        numThreadCount.ValueChanged += (_, _) =>
+        {
+            lblThreadSummary.Text = $"Threads: {numThreadCount.Value}";
+            SaveSettingsFromUi();
+        };
+        FormClosing += (_, _) => SaveSettingsFromUi();
     }
 
     private void SyncSelectionDetails()
