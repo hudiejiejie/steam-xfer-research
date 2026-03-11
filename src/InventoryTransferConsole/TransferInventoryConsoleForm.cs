@@ -24,7 +24,7 @@ public partial class TransferInventoryConsoleForm : Form, ILogSink
 
     public TransferInventoryConsoleForm()
     {
-        controller = new MockTransferController();
+        controller = new LegacyTransferController(fallback: new MockTransferController());
         settingsService = new JsonSettingsService();
         InitializeComponent();
         ApplyTheme();
@@ -44,10 +44,10 @@ public partial class TransferInventoryConsoleForm : Form, ILogSink
     private void RenderSnapshot()
     {
         SeedTables(snapshot);
-        lblMasterSummary.Text = $"Masters: {snapshot.Masters.Count}";
-        lblBeTradeSummary.Text = $"Workers: {snapshot.Workers.Count}";
-        lblRunState.Text = $"State: {snapshot.RunState}";
-        lblModeSummary.Text = $"Mode: {snapshot.ModeSummary}";
+        lblMasterSummary.Text = $"主库号：{snapshot.Masters.Count}";
+        lblBeTradeSummary.Text = $"待转号：{snapshot.Workers.Count}";
+        lblRunState.Text = $"状态：{snapshot.RunState}";
+        lblModeSummary.Text = $"模式：{snapshot.ModeSummary}";
 
         if (snapshot.Workers.Count > 0 && dgvBeTrade.Rows.Count > 0)
         {
@@ -72,11 +72,11 @@ public partial class TransferInventoryConsoleForm : Form, ILogSink
         appSettings = settingsService.Load();
 
         cmbTransferType.Items.Clear();
-        cmbTransferType.Items.AddRange(new object[] { "Send+Accept", "Send All Then Accept" });
+        cmbTransferType.Items.AddRange(new object[] { "边发边接", "全发后统一接受" });
         cmbAcceptMode.Items.Clear();
-        cmbAcceptMode.Items.AddRange(new object[] { "Auto Accept", "Delayed Accept", "Manual Confirm" });
+        cmbAcceptMode.Items.AddRange(new object[] { "自动接受", "延后接受", "手动确认" });
         cmbItemType.Items.Clear();
-        cmbItemType.Items.AddRange(new object[] { "Filter by Type", "Filter by Exact Name" });
+        cmbItemType.Items.AddRange(new object[] { "按类型筛选", "按名称精确" });
 
         numThreadCount.Value = Math.Max(numThreadCount.Minimum, Math.Min(numThreadCount.Maximum, appSettings.Runtime.ThreadCount));
         cmbTransferType.SelectedIndex = ClampIndex(appSettings.Runtime.TransferTypeIndex, cmbTransferType.Items.Count);
@@ -84,9 +84,9 @@ public partial class TransferInventoryConsoleForm : Form, ILogSink
         cmbItemType.SelectedIndex = ClampIndex(appSettings.Runtime.ItemTypeIndex, cmbItemType.Items.Count);
         txtItemFilter.Text = appSettings.Runtime.ItemFilterValue;
 
-        lblThreadSummary.Text = $"Threads: {numThreadCount.Value}";
+        lblThreadSummary.Text = $"线程：{numThreadCount.Value}";
         if (cmbTransferType.SelectedIndex >= 0)
-            lblModeSummary.Text = $"Mode: {cmbTransferType.Text}";
+            lblModeSummary.Text = $"模式：{cmbTransferType.Text}";
         suppressSettingsEvents = false;
     }
 
@@ -317,7 +317,7 @@ public partial class TransferInventoryConsoleForm : Form, ILogSink
         dgvMaster.SelectionChanged += (_, _) => SyncSelectionDetails();
         cmbTransferType.SelectedIndexChanged += (_, _) =>
         {
-            lblModeSummary.Text = $"Mode: {cmbTransferType.Text}";
+            lblModeSummary.Text = $"模式：{cmbTransferType.Text}";
             SaveSettingsFromUi();
         };
         cmbAcceptMode.SelectedIndexChanged += (_, _) => SaveSettingsFromUi();
@@ -325,7 +325,7 @@ public partial class TransferInventoryConsoleForm : Form, ILogSink
         txtItemFilter.TextChanged += (_, _) => SaveSettingsFromUi();
         numThreadCount.ValueChanged += (_, _) =>
         {
-            lblThreadSummary.Text = $"Threads: {numThreadCount.Value}";
+            lblThreadSummary.Text = $"线程：{numThreadCount.Value}";
             SaveSettingsFromUi();
         };
         FormClosing += (_, _) => SaveSettingsFromUi();
