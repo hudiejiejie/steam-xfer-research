@@ -24,10 +24,8 @@ public partial class TransferInventoryConsoleForm : Form, ILogSink
 
     public TransferInventoryConsoleForm()
     {
+        controller = new LegacyTransferController(fallback: new MockTransferController());
         settingsService = new JsonSettingsService();
-        appSettings = settingsService.Load();
-        var legacyContext = LegacyPortContext.FromSettings(appSettings);
-        controller = new LegacyTransferController(fallback: new MockTransferController(), context: legacyContext);
         InitializeComponent();
         ApplyTheme();
         LoadDashboard();
